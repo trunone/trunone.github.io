@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>重新安裝Grub2 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="使用 Ubuntu Live CD 開機後 在 Terminal 輸入下列指令
+$ sudo mount /dev/sdaX /mnt 
+$ sudo mount --bind /proc /mnt/proc
+$ sudo mount --bind /dev /mnt/dev
+$ sudo mount --bind /sys /mnt/sys
+$ sudo chroot /mnt
+※ /dev/sdaX 為根目錄所在分割
+
+再依下列指令重新安裝 Grub2
+# apt-get remove --purge grub-pc grub-common
+# apt-get install grub-pc
+# grub-mkconfig
+# update-grub
+# grub-install /dev/sda
+" />
+    <meta property="og:description" content="使用 Ubuntu Live CD 開機後 在 Terminal 輸入下列指令
+$ sudo mount /dev/sdaX /mnt 
+$ sudo mount --bind /proc /mnt/proc
+$ sudo mount --bind /dev /mnt/dev
+$ sudo mount --bind /sys /mnt/sys
+$ sudo chroot /mnt
+※ /dev/sdaX 為根目錄所在分割
+
+再依下列指令重新安裝 Grub2
+# apt-get remove --purge grub-pc grub-common
+# apt-get install grub-pc
+# grub-mkconfig
+# update-grub
+# grub-install /dev/sda
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="重新安裝Grub2" />
+    <meta property="twitter:title" content="重新安裝Grub2" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>重新安裝Grub2</h1>
+
+  <div class="entry">
+    使用 Ubuntu Live CD 開機後 在 Terminal 輸入下列指令<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;color:black;background:white;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">$</span> sudo mount /dev/sdaX /mnt 
+<span style="color: #c65d09; font-weight: bold">$</span> sudo mount --bind /proc /mnt/proc
+<span style="color: #c65d09; font-weight: bold">$</span> sudo mount --bind /dev /mnt/dev
+<span style="color: #c65d09; font-weight: bold">$</span> sudo mount --bind /sys /mnt/sys
+<span style="color: #c65d09; font-weight: bold">$</span> sudo chroot /mnt
+</pre></div>※ /dev/sdaX 為根目錄所在分割<br />
+<br />
+再依下列指令重新安裝 Grub2<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;color:black;background:white;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">#</span> apt-get remove --purge grub-pc grub-common
+<span style="color: #c65d09; font-weight: bold">#</span> apt-get install grub-pc
+<span style="color: #c65d09; font-weight: bold">#</span> grub-mkconfig
+<span style="color: #c65d09; font-weight: bold">#</span> update-grub
+<span style="color: #c65d09; font-weight: bold">#</span> grub-install /dev/sda
+</pre></div>
+  </div>
+
+  <div class="date">
+    Written on June  6, 2012
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2012/06/06/grub2-reinstall/ ">English</a> |
+
+<a " href=" /zh_TW/2012/06/06/grub2-reinstall/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2012/06/06/grub2-reinstall/',
+		  'title': '重新安裝Grub2'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

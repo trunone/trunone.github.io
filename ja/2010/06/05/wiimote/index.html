@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>把Wiimote當滑鼠用 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="首先呢 先把Wiimote和電腦用藍芽連接起來
+
+電腦端建議用IVT的BlueSoleil
+
+基本上和一般藍芽的連接方式差不多
+
+讓Wiimote進入配對模式的方法是同時按1+2鍵
+
+記得Wii先不要開機 不然就會先被配對走了
+
+接下來抓這個程式GlovePIE
+
+起動它以後把下面這段Script貼進去
+
+// Wiimote mouse script for Windows desktop
+// Requires a sensor bar
+
+" />
+    <meta property="og:description" content="首先呢 先把Wiimote和電腦用藍芽連接起來
+
+電腦端建議用IVT的BlueSoleil
+
+基本上和一般藍芽的連接方式差不多
+
+讓Wiimote進入配對模式的方法是同時按1+2鍵
+
+記得Wii先不要開機 不然就會先被配對走了
+
+接下來抓這個程式GlovePIE
+
+起動它以後把下面這段Script貼進去
+
+// Wiimote mouse script for Windows desktop
+// Requires a sensor bar
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="把Wiimote當滑鼠用" />
+    <meta property="twitter:title" content="把Wiimote當滑鼠用" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>把Wiimote當滑鼠用</h1>
+
+  <div class="entry">
+    首先呢 先把Wiimote和電腦用藍芽連接起來<br />
+<br />
+電腦端建議用IVT的BlueSoleil<br />
+<br />
+基本上和一般藍芽的連接方式差不多<br />
+<br />
+讓Wiimote進入配對模式的方法是同時按1+2鍵<br />
+<br />
+記得Wii先不要開機 不然就會先被配對走了<br />
+<br />
+接下來抓這個程式<a href="">GlovePIE</a><br />
+<br />
+起動它以後把下面這段Script貼進去<br />
+<br />
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;color:white;background:black;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">// Wiimote mouse script for Windows desktop
+// Requires a sensor bar
+
+var.ButtonFreezeTime = 250ms
+var.PointerBump = KeepDown(Pressed(wiimote.A),var.ButtonFreezeTime) or KeepDown(Pressed(wiimote.B),var.ButtonFreezeTime)
+Wiimote.Led1 = true
+
+// Mouse movement
+if wiimote.PointerVisible but not var.PointerBump then
+mouse.x = wiimote.PointerX
+mouse.y = wiimote.PointerY
+end if
+
+// Mouse Buttons
+mouse.LeftButton = Wiimote.A and KeepDown(Wiimote.PointerVisible,0.5s)
+mouse.RightButton = Wiimote.B and KeepDown(Wiimote.PointerVisible,0.5s)
+mouse.MiddleButton = Wiimote.Home and KeepDown(Wiimote.PointerVisible,0.5s)
+mouse.XButton1 = Wiimote.Minus
+mouse.XButton2 = Wiimote.Plus
+
+// Mouse Wheel
+if wiimote.Up then
+mouse.WheelUp = true
+wait 30ms
+mouse.WheelUp = false
+wait 30ms
+end if
+if wiimote.Down then
+mouse.WheelDown = true
+wait 30ms
+mouse.WheelDown = false
+wait 30ms
+end if
+</pre></div><br />
+<br />
+然後點Run 現在就可以把Wii開機 這樣Sensor Bar才有電<br />
+<br />
+不然自己買兩個紅外線LED來做也行 XD<br />
+<br />
+可以把這段Script存起來 之後要開就很方便了<br />
+<br />
+Reference:<a href="">Wiimote IR Mouse</a>
+  </div>
+
+  <div class="date">
+    Written on June  5, 2010
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2010/06/05/wiimote/ ">English</a> |
+
+<a " href=" /zh_TW/2010/06/05/wiimote/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2010/06/05/wiimote/',
+		  'title': '把Wiimote當滑鼠用'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

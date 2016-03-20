@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Draw the figure of Oxide growth rate of Silicon – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="%Constant
+k = 8.6173 * 10^(-5); %boltzman's constant - normalized to electron charge
+%
+C1wet100=3.86 * 10^2;
+C2wet111=1.63 * 10^8;
+%
+C1dry100=7.72 * 10^2;
+C2dry111=6.23 * 10^6;
+%
+C2wet100=C2wet111/1.7;
+C2dry100=C2dry111/1.7;
+%
+E1wet=0.78;
+E2wet=2.05;
+%
+E1dry=1.23;
+E2dry=2.00;
+%
+%Use silicon 100 wet
+E1 = E1wet;
+E2 = E2wet;
+C1 = C1wet100;
+C2 = C2wet100;
+%
+%Temperature
+Temp = 850:50:1200;
+Temp = Temp+273;
+%
+%Calculate A and B
+P = C1.*exp(-(E1./(k.*Temp)));
+L = C2.*exp(-(E2./(k.*Temp)));
+A = P./L;
+B = P;
+%
+x = 0.01:0.001:10; %EndThickness
+d0 = 0; %StartThickness;
+%
+%Calculate time
+time1 = ((x.*x-d0^2) + (x-d0).*A(1))./B(1);
+time2 = ((x.*x-d0^2) + (x-d0).*A(2))./B(2);
+time3 = ((x.*x-d0^2) + (x-d0).*A(3))./B(3);
+time4 = ((x.*x-d0^2) + (x-d0).*A(4))./B(4);
+time5 = ((x.*x-d0^2) + (x-d0).*A(5))./B(5);
+time6 = ((x.*x-d0^2) + (x-d0).*A(6))./B(6);
+time7 = ((x.*x-d0^2) + (x-d0).*A(7))./B(7);
+time8 = ((x.*x-d0^2) + (x-d0).*A(8))./B(8);
+%
+%Draw figure
+loglog(time1,x,time2,x,time3,x,time4,x,...
+time5,x,time6,x,time7,x,time8,x);
+axis([0.05 20 0.01 10]);
+h = legend('850^C','900^C','950^C','1000^C',...
+'1050^C','1100^C','1150^C','1200^C',2);
+set(h,'Interpreter','none');
+xlabel('Oxidation time (hour)');
+ylabel('Oxide thickness (um)');
+" />
+    <meta property="og:description" content="%Constant
+k = 8.6173 * 10^(-5); %boltzman's constant - normalized to electron charge
+%
+C1wet100=3.86 * 10^2;
+C2wet111=1.63 * 10^8;
+%
+C1dry100=7.72 * 10^2;
+C2dry111=6.23 * 10^6;
+%
+C2wet100=C2wet111/1.7;
+C2dry100=C2dry111/1.7;
+%
+E1wet=0.78;
+E2wet=2.05;
+%
+E1dry=1.23;
+E2dry=2.00;
+%
+%Use silicon 100 wet
+E1 = E1wet;
+E2 = E2wet;
+C1 = C1wet100;
+C2 = C2wet100;
+%
+%Temperature
+Temp = 850:50:1200;
+Temp = Temp+273;
+%
+%Calculate A and B
+P = C1.*exp(-(E1./(k.*Temp)));
+L = C2.*exp(-(E2./(k.*Temp)));
+A = P./L;
+B = P;
+%
+x = 0.01:0.001:10; %EndThickness
+d0 = 0; %StartThickness;
+%
+%Calculate time
+time1 = ((x.*x-d0^2) + (x-d0).*A(1))./B(1);
+time2 = ((x.*x-d0^2) + (x-d0).*A(2))./B(2);
+time3 = ((x.*x-d0^2) + (x-d0).*A(3))./B(3);
+time4 = ((x.*x-d0^2) + (x-d0).*A(4))./B(4);
+time5 = ((x.*x-d0^2) + (x-d0).*A(5))./B(5);
+time6 = ((x.*x-d0^2) + (x-d0).*A(6))./B(6);
+time7 = ((x.*x-d0^2) + (x-d0).*A(7))./B(7);
+time8 = ((x.*x-d0^2) + (x-d0).*A(8))./B(8);
+%
+%Draw figure
+loglog(time1,x,time2,x,time3,x,time4,x,...
+time5,x,time6,x,time7,x,time8,x);
+axis([0.05 20 0.01 10]);
+h = legend('850^C','900^C','950^C','1000^C',...
+'1050^C','1100^C','1150^C','1200^C',2);
+set(h,'Interpreter','none');
+xlabel('Oxidation time (hour)');
+ylabel('Oxide thickness (um)');
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="Draw the figure of Oxide growth rate of Silicon" />
+    <meta property="twitter:title" content="Draw the figure of Oxide growth rate of Silicon" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>Draw the figure of Oxide growth rate of Silicon</h1>
+
+  <div class="entry">
+    <figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="c1">%Constant</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">8.6173</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">);</span> <span class="c1">%boltzman's constant - normalized to electron charge</span>
+<span class="c1">%</span>
+<span class="n">C1wet100</span><span class="o">=</span><span class="mf">3.86</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">C2wet111</span><span class="o">=</span><span class="mf">1.63</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">8</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="n">C1dry100</span><span class="o">=</span><span class="mf">7.72</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">C2dry111</span><span class="o">=</span><span class="mf">6.23</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">6</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="n">C2wet100</span><span class="o">=</span><span class="n">C2wet111</span><span class="p">/</span><span class="mf">1.7</span><span class="p">;</span>
+<span class="n">C2dry100</span><span class="o">=</span><span class="n">C2dry111</span><span class="p">/</span><span class="mf">1.7</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="n">E1wet</span><span class="o">=</span><span class="mf">0.78</span><span class="p">;</span>
+<span class="n">E2wet</span><span class="o">=</span><span class="mf">2.05</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="n">E1dry</span><span class="o">=</span><span class="mf">1.23</span><span class="p">;</span>
+<span class="n">E2dry</span><span class="o">=</span><span class="mf">2.00</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="c1">%Use silicon 100 wet</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">E1wet</span><span class="p">;</span>
+<span class="n">E2</span> <span class="o">=</span> <span class="n">E2wet</span><span class="p">;</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="n">C1wet100</span><span class="p">;</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">C2wet100</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="c1">%Temperature</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="mi">850</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">1200</span><span class="p">;</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">Temp</span><span class="o">+</span><span class="mi">273</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="c1">%Calculate A and B</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">C1</span><span class="o">.*</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">E1</span><span class="o">.</span><span class="p">/(</span><span class="n">k</span><span class="o">.*</span><span class="n">Temp</span><span class="p">)));</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">C2</span><span class="o">.*</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">E2</span><span class="o">.</span><span class="p">/(</span><span class="n">k</span><span class="o">.*</span><span class="n">Temp</span><span class="p">)));</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="p">/</span><span class="n">L</span><span class="p">;</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">P</span><span class="p">;</span>
+<span class="c1">%</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">:</span><span class="mf">0.001</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span> <span class="c1">%EndThickness</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">%StartThickness;</span>
+<span class="c1">%</span>
+<span class="c1">%Calculate time</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">time2</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">time3</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">time4</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">time5</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">time6</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">time7</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="n">time8</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">d0</span><span class="p">)</span><span class="o">.*</span><span class="n">A</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="p">/</span><span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+<span class="c1">%</span>
+<span class="c1">%Draw figure</span>
+<span class="nb">loglog</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time2</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time3</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time4</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="k">...</span>
+<span class="n">time5</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time6</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time7</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">time8</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+<span class="nb">axis</span><span class="p">([</span><span class="mf">0.05</span> <span class="mi">20</span> <span class="mf">0.01</span> <span class="mi">10</span><span class="p">]);</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">legend</span><span class="p">(</span><span class="s1">'850^C'</span><span class="p">,</span><span class="s1">'900^C'</span><span class="p">,</span><span class="s1">'950^C'</span><span class="p">,</span><span class="s1">'1000^C'</span><span class="p">,</span><span class="k">...</span>
+<span class="s1">'1050^C'</span><span class="p">,</span><span class="s1">'1100^C'</span><span class="p">,</span><span class="s1">'1150^C'</span><span class="p">,</span><span class="s1">'1200^C'</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s1">'Interpreter'</span><span class="p">,</span><span class="s1">'none'</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s1">'Oxidation time (hour)'</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Oxide thickness (um)'</span><span class="p">);</span></code></pre></figure>
+
+  </div>
+
+  <div class="date">
+    Written on January  7, 2011
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2011/01/07/draw-figure-of-oxide-growth-rate-of/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2011/01/07/draw-figure-of-oxide-growth-rate-of/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2011/01/07/draw-figure-of-oxide-growth-rate-of/',
+		  'title': 'Draw the figure of Oxide growth rate of Silicon'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

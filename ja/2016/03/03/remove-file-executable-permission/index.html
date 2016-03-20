@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>移除資料夾以外之檔案執行權限 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="
+$ find . -type f -print 0 | xargs -0 chmod a-x
+
+" />
+    <meta property="og:description" content="
+$ find . -type f -print 0 | xargs -0 chmod a-x
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="移除資料夾以外之檔案執行權限" />
+    <meta property="twitter:title" content="移除資料夾以外之檔案執行權限" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>移除資料夾以外之檔案執行權限</h1>
+
+  <div class="entry">
+    
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>find . -type f -print 0 | xargs -0 chmod a-x</code></pre></figure>
+
+<ul>
+  <li>
+    <p>find . : 在目前路徑下尋找。</p>
+  </li>
+  <li>
+    <p>-type f : 只尋找檔案 (-type d 則為尋找目錄)</p>
+  </li>
+  <li>
+    <p>-print0 : 印出檔案名稱時，將各檔案名稱以 null 字元隔開。這可以避免檔名中有空白時判斷錯誤。</p>
+  </li>
+  <li>
+    <p>xargs : 對每一個輸出的檔案執行一個命令。</p>
+  </li>
+  <li>
+    <p>-0 : 以 null 字元為分隔來執行命令</p>
+  </li>
+  <li>
+    <p>chmod a-x : 移除所有執行權限</p>
+  </li>
+</ul>
+
+  </div>
+
+  <div class="date">
+    Written on March  3, 2016
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2016/03/03/remove-file-executable-permission/ ">English</a> |
+
+<a " href=" /zh_TW/2016/03/03/remove-file-executable-permission/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2016/03/03/remove-file-executable-permission/',
+		  'title': '移除資料夾以外之檔案執行權限'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>改變MySQL資料庫的位置 (Ubuntu) – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="!!!做以下動作前最好備份一下資料庫!!!
+
+" />
+    <meta property="og:description" content="!!!做以下動作前最好備份一下資料庫!!!
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="改變MySQL資料庫的位置 (Ubuntu)" />
+    <meta property="twitter:title" content="改變MySQL資料庫的位置 (Ubuntu)" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>改變MySQL資料庫的位置 (Ubuntu)</h1>
+
+  <div class="entry">
+    <h1><span style="color: #ff0000;">!!!做以下動作前最好備份一下資料庫!!!</span></h1>
+
+<p>首先把 MySQL 停下來</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo /etc/init.d/mysql stop</code></pre></figure>
+
+<p>接下來複製資料庫到你想要的位置</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo cp -R -p /var/lib/mysql /path/to/new/datadir</code></pre></figure>
+
+<p>再來編輯MySQL的設定檔，這裡我是使用 vim，可用自己習慣的</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo vim /etc/mysql/my.cnf</code></pre></figure>
+
+<p>找到 <em>datadir</em> 這個變數，把後面的路徑改成新的</p>
+
+<p>接下來這一步如果不是 Ubuntu 7.10 以上可以不用做 (不過大部分都是了吧？)</p>
+
+<p>Ubuntu 7.10 以上用了一個叫 AppAromr 的程式來保護系統檔</p>
+
+<p>必需改變它的設定，不然是無法從新的路徑讀到 MySQL 資料庫的</p>
+
+<p>所以來編輯它MySQL設定的部分</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo gedit /etc/apparmor.d/usr.sbin.mysqld</code></pre></figure>
+
+<p>有兩行是原始路徑 <em>/var/lib/mysql</em> 可以直接改成新的路徑</p>
+
+<p>如果不放心，可以在前面加#號，然後複製成新的兩行去改</p>
+
+<p>接下來就重新啟動 AppArmor 與 MySQL</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo /etc/init.d/apparmor reload
+<span class="gp">$ </span>sudo /etc/init.d/mysql restart</code></pre></figure>
+
+<p>如果啟動的過程中沒有出現錯誤訊息的話，那就大功告成了！</p>
+
+<p>Reference: <a href="">How to change the MySQL data default directory</a></p>
+
+  </div>
+
+  <div class="date">
+    Written on March  7, 2010
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2010/03/07/mysql-ubuntu/ ">English</a> |
+
+<a " href=" /zh_TW/2010/03/07/mysql-ubuntu/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2010/03/07/mysql-ubuntu/',
+		  'title': '改變MySQL資料庫的位置 (Ubuntu)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

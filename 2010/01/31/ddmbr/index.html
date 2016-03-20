@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>使用dd來備份MBR – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="進入Linux的shell後打上
+
+" />
+    <meta property="og:description" content="進入Linux的shell後打上
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="使用dd來備份MBR" />
+    <meta property="twitter:title" content="使用dd來備份MBR" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>使用dd來備份MBR</h1>
+
+  <div class="entry">
+    <p>進入Linux的shell後打上</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># dd if=/dev/sdx of=MBR_Backup bs=512 count=1</span></code></pre></figure>
+
+<p>這樣sdx的MBR就會存成一個叫MBR_Backup的檔案<br /><br /></p>
+
+<p>而還原的方法是：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># dd if=MBR_Backup of=/dev/sdx bs=512 count=1</span></code></pre></figure>
+
+<p>這樣MBR_Backup就會寫進sdx的MBR了</p>
+
+  </div>
+
+  <div class="date">
+    Written on January 31, 2010
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a style="font-weight: bold;"" href=" /2010/01/31/ddmbr/ ">English</a> |
+
+<a " href=" /zh_TW/2010/01/31/ddmbr/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2010/01/31/ddmbr/',
+		  'title': '使用dd來備份MBR'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>手動編譯 git 原始碼與安裝 (CentOS 5) – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="使用 Yum 移除及安裝所需套件：
+# yum remove curl curl-devel
+# yum install zlib zlib-devel libssh2 libssh2-devel openssl openssl-devel expat expat-devel
+
+下載 cURL 原始碼並編譯及安裝：
+# cd /usr/local/src/
+# wget &quot;http://curl.haxx.se/download/curl-7.21.3.tar.gz&quot;
+# tar xzf curl-7.21.3.tar.gz
+# rm curl-7.21.3.tar.gz
+# ln -s curl-7.21.3 curl
+# cd curl/
+# make clean
+# ./configure --libdir=/usr/lib64 --with-libssh2 --enable-shared --with-ssl --prefix=/usr
+# make
+# make install
+
+下載 git 原始碼並編譯及安裝：
+# cd /usr/local/src
+# wget &quot;https://git-core.googlecode.com/files/git-1.8.2.1.tar.gz&quot;
+# bunzip2 git-1.7.4.tar.bz2
+# tar xf git-1.7.4.tar
+# rm git-1.7.4.tar
+# ln -s git-1.7.4 git
+# cd git/
+# make clean
+# ./configure --with-curl --with-openssl --with-expat
+# make
+# make install
+" />
+    <meta property="og:description" content="使用 Yum 移除及安裝所需套件：
+# yum remove curl curl-devel
+# yum install zlib zlib-devel libssh2 libssh2-devel openssl openssl-devel expat expat-devel
+
+下載 cURL 原始碼並編譯及安裝：
+# cd /usr/local/src/
+# wget &quot;http://curl.haxx.se/download/curl-7.21.3.tar.gz&quot;
+# tar xzf curl-7.21.3.tar.gz
+# rm curl-7.21.3.tar.gz
+# ln -s curl-7.21.3 curl
+# cd curl/
+# make clean
+# ./configure --libdir=/usr/lib64 --with-libssh2 --enable-shared --with-ssl --prefix=/usr
+# make
+# make install
+
+下載 git 原始碼並編譯及安裝：
+# cd /usr/local/src
+# wget &quot;https://git-core.googlecode.com/files/git-1.8.2.1.tar.gz&quot;
+# bunzip2 git-1.7.4.tar.bz2
+# tar xf git-1.7.4.tar
+# rm git-1.7.4.tar
+# ln -s git-1.7.4 git
+# cd git/
+# make clean
+# ./configure --with-curl --with-openssl --with-expat
+# make
+# make install
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="手動編譯 git 原始碼與安裝 (CentOS 5)" />
+    <meta property="twitter:title" content="手動編譯 git 原始碼與安裝 (CentOS 5)" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>手動編譯 git 原始碼與安裝 (CentOS 5)</h1>
+
+  <div class="entry">
+    使用 Yum 移除及安裝所需套件：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">#</span> yum remove curl curl-devel
+<span style="color: #c65d09; font-weight: bold">#</span> yum install zlib zlib-devel libssh2 libssh2-devel openssl openssl-devel expat expat-devel
+</pre></div><br />
+下載 cURL 原始碼並編譯及安裝：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">#</span> <span style="color: #007020">cd</span> /usr/local/src/
+<span style="color: #c65d09; font-weight: bold">#</span> wget <span style="background-color: #fff0f0">&quot;http://curl.haxx.se/download/curl-7.21.3.tar.gz&quot;</span>
+<span style="color: #c65d09; font-weight: bold">#</span> tar xzf curl-7.21.3.tar.gz
+<span style="color: #c65d09; font-weight: bold">#</span> rm curl-7.21.3.tar.gz
+<span style="color: #c65d09; font-weight: bold">#</span> ln -s curl-7.21.3 curl
+<span style="color: #c65d09; font-weight: bold">#</span> <span style="color: #007020">cd </span>curl/
+<span style="color: #c65d09; font-weight: bold">#</span> make clean
+<span style="color: #c65d09; font-weight: bold">#</span> ./configure --libdir<span style="color: #303030">=</span>/usr/lib64 --with-libssh2 --enable-shared --with-ssl --prefix<span style="color: #303030">=</span>/usr
+<span style="color: #c65d09; font-weight: bold">#</span> make
+<span style="color: #c65d09; font-weight: bold">#</span> make install
+</pre></div><br />
+下載 git 原始碼並編譯及安裝：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">#</span> <span style="color: #007020">cd</span> /usr/local/src
+<span style="color: #c65d09; font-weight: bold">#</span> wget <span style="background-color: #fff0f0">&quot;https://git-core.googlecode.com/files/git-1.8.2.1.tar.gz&quot;</span>
+<span style="color: #c65d09; font-weight: bold">#</span> bunzip2 git-1.7.4.tar.bz2
+<span style="color: #c65d09; font-weight: bold">#</span> tar xf git-1.7.4.tar
+<span style="color: #c65d09; font-weight: bold">#</span> rm git-1.7.4.tar
+<span style="color: #c65d09; font-weight: bold">#</span> ln -s git-1.7.4 git
+<span style="color: #c65d09; font-weight: bold">#</span> <span style="color: #007020">cd </span>git/
+<span style="color: #c65d09; font-weight: bold">#</span> make clean
+<span style="color: #c65d09; font-weight: bold">#</span> ./configure --with-curl --with-openssl --with-expat
+<span style="color: #c65d09; font-weight: bold">#</span> make
+<span style="color: #c65d09; font-weight: bold">#</span> make install
+</pre></div>
+  </div>
+
+  <div class="date">
+    Written on April 11, 2013
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2013/04/11/git-centos-5/ ">English</a> |
+
+<a " href=" /zh_TW/2013/04/11/git-centos-5/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2013/04/11/git-centos-5/',
+		  'title': '手動編譯 git 原始碼與安裝 (CentOS 5)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

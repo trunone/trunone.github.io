@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Linux Console 解析度調整 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="現在的螢幕解析度都很高了但Linux預設的Console解析度都只有640x480
+能顯示的行數很少 為了能充份利用螢幕 就來吧解析度調高吧
+用文字編輯器打開以下的檔案：
+
+/boot/grub/menu.lst
+
+這是GRUB的設定檔 在裡面找到kernel開頭的一行
+
+kernel /boot/vmlinuz-your-version ~~~~
+
+在那一行的最後加上
+
+kernel /boot/vmlinuz-your-version ~~~~ vga=???
+
+???要填的數字請參考下列的表格，之後重開機就可以了
+
+" />
+    <meta property="og:description" content="現在的螢幕解析度都很高了但Linux預設的Console解析度都只有640x480
+能顯示的行數很少 為了能充份利用螢幕 就來吧解析度調高吧
+用文字編輯器打開以下的檔案：
+
+/boot/grub/menu.lst
+
+這是GRUB的設定檔 在裡面找到kernel開頭的一行
+
+kernel /boot/vmlinuz-your-version ~~~~
+
+在那一行的最後加上
+
+kernel /boot/vmlinuz-your-version ~~~~ vga=???
+
+???要填的數字請參考下列的表格，之後重開機就可以了
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="Linux Console 解析度調整" />
+    <meta property="twitter:title" content="Linux Console 解析度調整" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>Linux Console 解析度調整</h1>
+
+  <div class="entry">
+    <p>現在的螢幕解析度都很高了<br /><br />但Linux預設的Console解析度都只有640x480<br /><br />
+能顯示的行數很少 為了能充份利用螢幕 就來吧解析度調高吧<br /><br />
+用文字編輯器打開以下的檔案：<br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">/boot/grub/menu.lst</code></pre></figure>
+
+<p>這是GRUB的設定檔 在裡面找到kernel開頭的一行<br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">kernel /boot/vmlinuz-your-version ~~~~</code></pre></figure>
+
+<p>在那一行的最後加上<br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">kernel /boot/vmlinuz-your-version ~~~~ vga=???</code></pre></figure>
+
+<p>???要填的數字請參考下列的表格，之後重開機就可以了</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Colors</th>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">640x400</th>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">640x480</th>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">800x600</th>
+      <th style="text-align: center"> </th>
+      <th>1024x768</th>
+      <th> </th>
+      <th>1152x864</th>
+      <th> </th>
+      <th>1280x1024</th>
+      <th> </th>
+      <th>1600x1200</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">4 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">770</td>
+      <td style="text-align: center"> </td>
+      <td>?</td>
+      <td> </td>
+      <td>?</td>
+      <td> </td>
+      <td>?</td>
+      <td> </td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">768</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">769</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">771</td>
+      <td style="text-align: center"> </td>
+      <td>773</td>
+      <td> </td>
+      <td>353</td>
+      <td> </td>
+      <td>775</td>
+      <td> </td>
+      <td>796</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">15 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">784</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">787</td>
+      <td style="text-align: center"> </td>
+      <td>790</td>
+      <td> </td>
+      <td>354</td>
+      <td> </td>
+      <td>793</td>
+      <td> </td>
+      <td>797</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">16 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">758</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">788</td>
+      <td style="text-align: center"> </td>
+      <td>791</td>
+      <td> </td>
+      <td>355</td>
+      <td> </td>
+      <td>794</td>
+      <td> </td>
+      <td>798</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">786</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">789</td>
+      <td style="text-align: center"> </td>
+      <td>792</td>
+      <td> </td>
+      <td>?</td>
+      <td> </td>
+      <td>795</td>
+      <td> </td>
+      <td>799</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">32 bits</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center"> </td>
+      <td>?</td>
+      <td> </td>
+      <td>356</td>
+      <td> </td>
+      <td>?</td>
+      <td> </td>
+      <td>?</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  <div class="date">
+    Written on June 20, 2009
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2009/06/20/linux-console/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2009/06/20/linux-console/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2009/06/20/linux-console/',
+		  'title': 'Linux Console 解析度調整'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

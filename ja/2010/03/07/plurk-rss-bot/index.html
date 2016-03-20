@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Plurk RSS Bot – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="這個Bot可能要有架站的人來用比較方便 因為是用PHP CLI
+我是用在Ubuntu上 不過Windows應該也沒有問題的 只是要再自己查一下資料
+
+" />
+    <meta property="og:description" content="這個Bot可能要有架站的人來用比較方便 因為是用PHP CLI
+我是用在Ubuntu上 不過Windows應該也沒有問題的 只是要再自己查一下資料
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="Plurk RSS Bot" />
+    <meta property="twitter:title" content="Plurk RSS Bot" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>Plurk RSS Bot</h1>
+
+  <div class="entry">
+    <p>這個Bot可能要有架站的人來用比較方便 因為是用<a href="http://www.php-cli.com/">PHP CLI</a>
+我是用在Ubuntu上 不過Windows應該也沒有問題的 只是要再自己查一下資料</p>
+
+<p>首先因會用到一個PHP的module叫cURL 通常預設是不會裝的 所以要來安裝一下</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># sudo apt-get install curl php5-curl</span></code></pre></figure>
+
+<p>接下來要去抓別人寫來抓RSS的PHP Code 我是用<a href="http://simplepie.org/">SimplePie</a></p>
+
+<p>抓完以後解開它的壓縮檔 裡面有一個simplepie.inc把它拿出來</p>
+
+<p>再來把以下的原始碼存成PlurkBot.php 也放在和simplepie.inc同一個路徑</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'NICKNAME'</span><span class="p">,</span> <span class="s1">'你的帳號'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'PASSWORD'</span><span class="p">,</span> <span class="s1">'你的密碼'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'USER_ID'</span><span class="p">,</span> <span class="s1">'你的user_id'</span><span class="p">);</span> <span class="c1">//這裡比較麻煩 要到你的plurk去看原始碼 user_id那個變數就是了
+// Include SimplePie
+// Located in the parent directory
+</span><span class="k">include_once</span><span class="p">(</span><span class="s1">'simplepie.inc'</span><span class="p">);</span>
+<span class="c1">//
+// Create a new instance of the SimplePie object
+</span><span class="nv">$feed</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimplePie</span><span class="p">();</span>
+<span class="c1">//
+// Use the URL that was passed to the page in SimplePie
+</span><span class="nv">$feed</span><span class="o">-&gt;</span><span class="na">set_feed_url</span><span class="p">(</span><span class="s1">'http://chinese.engadget.com/rss.xml'</span><span class="p">);</span> <span class="c1">//這段網址可以改成你要的RSS 這邊我是用Engadget Chinese來示範
+//
+// Initialize the whole SimplePie object.  Read the feed, process it, parse it, cache it, and
+// all that other good stuff.  The feed's information will not be available to SimplePie before
+// this is called.
+</span><span class="nv">$success</span> <span class="o">=</span> <span class="nv">$feed</span><span class="o">-&gt;</span><span class="na">init</span><span class="p">();</span>
+<span class="c1">//
+// We'll make sure that the right content type and character encoding gets set automatically.
+// This function will grab the proper character encoding, as well as set the content type to text/html.
+</span><span class="nv">$feed</span><span class="o">-&gt;</span><span class="na">handle_content_type</span><span class="p">();</span>
+<span class="c1">//
+</span><span class="nv">$pu_number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">//
+</span><span class="k">foreach</span><span class="p">(</span><span class="nv">$feed</span><span class="o">-&gt;</span><span class="na">get_items</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
+<span class="nv">$plurk_pu</span><span class="p">[</span><span class="nv">$pu_number</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'News: '</span><span class="o">.</span><span class="nv">$item</span><span class="o">-&gt;</span><span class="na">get_permalink</span><span class="p">()</span><span class="o">.</span><span class="s1">' ('</span><span class="o">.</span><span class="nb">ereg_replace</span><span class="p">(</span><span class="s1">' \(([0-9]{1,2}) 回應)$'</span><span class="p">,</span><span class="s1">''</span> <span class="p">,</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">get_title</span><span class="p">())</span><span class="o">.</span><span class="s1">')'</span><span class="p">;</span>
+<span class="c1">//這一段我有對取得的RSS標題做修改 因為Engadget的RSS標題最後會有幾人回應的字 我覺得會怪怪的 所以把它處理掉
+</span><span class="nv">$pu_number</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//
+</span><span class="nv">$show</span> <span class="o">=</span> <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">//這行是從取得的RSS標題中的前五個隨機選一個
+//
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_COOKIEJAR</span><span class="p">,</span> <span class="s1">'plurk.cookie'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s1">'plurk.cookie'</span><span class="p">);</span>
+<span class="c1">//
+// login
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="s1">'nick_name='</span><span class="o">.</span><span class="nx">NICKNAME</span><span class="o">.</span><span class="s1">'&amp;password='</span><span class="o">.</span><span class="nx">PASSWORD</span><span class="p">);</span>
+<span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//
+// post
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="s1">'qualifier=%3A&amp;content='</span><span class="o">.</span><span class="nb">urlencode</span><span class="p">(</span><span class="nv">$plurk_pu</span><span class="p">[</span><span class="nv">$show</span><span class="p">])</span><span class="o">.</span><span class="s1">'&amp;no_comments=0&amp;uid='</span><span class="o">.</span><span class="nx">USER_ID</span><span class="p">);</span>
+<span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//
+</span><span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span></code></pre></figure>
+
+<p>記得把內容改為符合你自己的Plurk</p>
+
+<p>然後在同一個路徑新增一個資料夾cache 權限改為777 這是給SimplePie放cache用的</p>
+
+<p>再來就是最後一步 執行：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># php PlurkBot.php</span></code></pre></figure>
+<p>你就會發現你的Plurk上自動噗了一則Engadget的新聞囉</p>
+
+<p>那如果你還希望它定時執行的話 那用把它放到<a href="http://en.wikipedia.org/wiki/Cron">Crontab</a>去吧！</p>
+
+<p>Reference: <a href="http://blog.xuite.net/vexed/tech/22023458">自製Plurk Bot定時自動發噗</a></p>
+
+  </div>
+
+  <div class="date">
+    Written on March  7, 2010
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2010/03/07/plurk-rss-bot/ ">English</a> |
+
+<a " href=" /zh_TW/2010/03/07/plurk-rss-bot/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2010/03/07/plurk-rss-bot/',
+		  'title': 'Plurk RSS Bot'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

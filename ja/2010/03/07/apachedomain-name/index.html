@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>apache啟動時抓不到Domain Name的問題 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="之前Ubuntu上的apache在啟動時老是出現這個錯誤訊息
+
+apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for ServerName
+雖然好像沒什麼影響 但是看了總是很礙眼 於是google了一下
+
+才發現原來是apache設定的問題 只要在/etc/apache2/apache2.conf中加入
+ServerName "server.name"
+那個server.name就任你改囉
+
+Reference: Apache error - server's fully qualified domain name [RESOLVED]" />
+    <meta property="og:description" content="之前Ubuntu上的apache在啟動時老是出現這個錯誤訊息
+
+apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for ServerName
+雖然好像沒什麼影響 但是看了總是很礙眼 於是google了一下
+
+才發現原來是apache設定的問題 只要在/etc/apache2/apache2.conf中加入
+ServerName "server.name"
+那個server.name就任你改囉
+
+Reference: Apache error - server's fully qualified domain name [RESOLVED]" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="apache啟動時抓不到Domain Name的問題" />
+    <meta property="twitter:title" content="apache啟動時抓不到Domain Name的問題" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>apache啟動時抓不到Domain Name的問題</h1>
+
+  <div class="entry">
+    之前Ubuntu上的apache在啟動時老是出現這個錯誤訊息<br />
+<br />
+<pre class="syntax text">apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for ServerName</pre><br />
+雖然好像沒什麼影響 但是看了總是很礙眼 於是google了一下<br />
+<br />
+才發現原來是apache設定的問題 只要在<code class="syntax text">/etc/apache2/apache2.conf</code>中加入<br />
+<code class="syntax text">ServerName "server.name"</code><br />
+那個server.name就任你改囉<br />
+<br />
+Reference: <a href="http://ubuntuforums.org/showthread.php?t=424573">Apache error - server's fully qualified domain name [RESOLVED]</a>
+  </div>
+
+  <div class="date">
+    Written on March  7, 2010
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2010/03/07/apachedomain-name/ ">English</a> |
+
+<a " href=" /zh_TW/2010/03/07/apachedomain-name/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2010/03/07/apachedomain-name/',
+		  'title': 'apache啟動時抓不到Domain Name的問題'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

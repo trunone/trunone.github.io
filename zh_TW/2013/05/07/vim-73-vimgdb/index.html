@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>編譯 vim 7.3 與 vimgdb – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="安裝所需套件：
+% sudo apt-get install libreadline6-dev liblua5.1-0-dev liblua5.1-0-dev
+
+使用 git clone vimgdb：
+% git clone git://github.com/larrupingpig/vimgdb-for-vim7.3.git
+
+將 vimgdb patch 進 vim：
+% patch -p0 &lt; vimgdb-for-vim7.3/vim73.patch
+
+修改if_lua.c：
+#include &lt;lua.h&gt;
+#include &lt;lualib.h&gt;
+#include &lt;lauxlib.h&gt;
+
+#include &lt;lua5.1/lua.h&gt;
+#include &lt;lua5.1/lualib.h&gt;
+#include &lt;lua5.1/lauxlib.h&gt;
+
+修改auto/configure：
+LUA_LIBS=&quot;-L${vi_cv_path_lua_pfx}/lib -llua&quot;
+
+LUA_LIBS=&quot;-L${vi_cv_path_lua_pfx}/lib -llua5.1&quot;
+
+編譯與安裝：
+% make
+% sudo make install
+" />
+    <meta property="og:description" content="安裝所需套件：
+% sudo apt-get install libreadline6-dev liblua5.1-0-dev liblua5.1-0-dev
+
+使用 git clone vimgdb：
+% git clone git://github.com/larrupingpig/vimgdb-for-vim7.3.git
+
+將 vimgdb patch 進 vim：
+% patch -p0 &lt; vimgdb-for-vim7.3/vim73.patch
+
+修改if_lua.c：
+#include &lt;lua.h&gt;
+#include &lt;lualib.h&gt;
+#include &lt;lauxlib.h&gt;
+
+#include &lt;lua5.1/lua.h&gt;
+#include &lt;lua5.1/lualib.h&gt;
+#include &lt;lua5.1/lauxlib.h&gt;
+
+修改auto/configure：
+LUA_LIBS=&quot;-L${vi_cv_path_lua_pfx}/lib -llua&quot;
+
+LUA_LIBS=&quot;-L${vi_cv_path_lua_pfx}/lib -llua5.1&quot;
+
+編譯與安裝：
+% make
+% sudo make install
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="編譯 vim 7.3 與 vimgdb" />
+    <meta property="twitter:title" content="編譯 vim 7.3 與 vimgdb" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>編譯 vim 7.3 與 vimgdb</h1>
+
+  <div class="entry">
+    安裝所需套件：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> sudo apt-get install libreadline6-dev liblua5.1-0-dev liblua5.1-0-dev
+</pre></div><br />
+使用 git clone vimgdb：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> git clone git://github.com/larrupingpig/vimgdb-for-vim7.3.git
+</pre></div><br />
+將 vimgdb patch 進 vim：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> patch -p0 &lt; vimgdb-for-vim7.3/vim73.patch
+</pre></div><br />
+修改<i>if_lua.c</i>：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #507090">#include &lt;lua.h&gt;</span>
+<span style="color: #507090">#include &lt;lualib.h&gt;</span>
+<span style="color: #507090">#include &lt;lauxlib.h&gt;</span>
+</pre></div><br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #507090">#include &lt;lua5.1/lua.h&gt;</span>
+<span style="color: #507090">#include &lt;lua5.1/lualib.h&gt;</span>
+<span style="color: #507090">#include &lt;lua5.1/lauxlib.h&gt;</span>
+</pre></div><br />
+修改<i>auto/configure</i>：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #906030">LUA_LIBS</span><span style="color: #303030">=</span><span style="background-color: #fff0f0">&quot;-L${vi_cv_path_lua_pfx}/lib -llua&quot;</span>
+</pre></div><br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #906030">LUA_LIBS</span><span style="color: #303030">=</span><span style="background-color: #fff0f0">&quot;-L${vi_cv_path_lua_pfx}/lib -llua5.1&quot;</span>
+</pre></div><br />
+編譯與安裝：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> make
+<span style="color: #c65d09; font-weight: bold">%</span> sudo make install
+</pre></div>
+  </div>
+
+  <div class="date">
+    Written on May  7, 2013
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2013/05/07/vim-73-vimgdb/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2013/05/07/vim-73-vimgdb/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2013/05/07/vim-73-vimgdb/',
+		  'title': '編譯 vim 7.3 與 vimgdb'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>從隨身碟安裝 Windows 7 或 Windows Server 2008 R2 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="微軟官方有提供一個工具 不過它一定要吃 ISO 檔 沒辦法從光碟來做
+
+這裡有個簡單的方法：
+
+1. 首先開啟「命令提示字元」 (記得用 Administrator 的權限開)
+
+2. 輸入Y: 來切到你的光碟機 Y為光碟機代號
+
+3. 輸入下面兩道指令 X為隨身碟代號
+.\boot\bootsect.exe /NT60 X:
+xcopy *.* /s /e /f X:\
+看你隨身碟的速度而定 會複製一段時間
+
+完成後就能用來安裝了！
+
+UPDATE:
+
+如果上述步驟無法成功的話或是使用SD讀卡機
+
+可以試試以下的方法
+
+1. 一樣使用 Administrator 的權限開啟「命令提示字元」
+
+2. 輸入diskpart 會進入DISKPART&gt;的模式
+
+3. 輸入list disk 會秀出所有的磁碟編號 可以用容量來看出隨身碟或SD卡是哪一個
+
+4. 輸入select disk # 來選擇你的磁碟 #是磁碟編號
+
+5. 輸入clean 這個指令會將磁碟清空
+
+6. 輸入create partition primary 重新建立一個分割區
+
+7. 輸入select partition 1 選擇剛建立的分割區
+
+8. 輸入active 將其設定為可開機
+
+9. 輸入format fs=fat32 將它格式化成FAT32
+
+10. 輸入assign letter=Y 將它掛到一個磁碟代號 這裡是用Y
+
+11. 輸入exit 離開這個程式
+
+接下來一樣是用xcopy X:\*.* /s /e /f Y:\來複製檔案
+
+X是光碟機 Y是你的隨身碟或SD卡 這樣就完成了！" />
+    <meta property="og:description" content="微軟官方有提供一個工具 不過它一定要吃 ISO 檔 沒辦法從光碟來做
+
+這裡有個簡單的方法：
+
+1. 首先開啟「命令提示字元」 (記得用 Administrator 的權限開)
+
+2. 輸入Y: 來切到你的光碟機 Y為光碟機代號
+
+3. 輸入下面兩道指令 X為隨身碟代號
+.\boot\bootsect.exe /NT60 X:
+xcopy *.* /s /e /f X:\
+看你隨身碟的速度而定 會複製一段時間
+
+完成後就能用來安裝了！
+
+UPDATE:
+
+如果上述步驟無法成功的話或是使用SD讀卡機
+
+可以試試以下的方法
+
+1. 一樣使用 Administrator 的權限開啟「命令提示字元」
+
+2. 輸入diskpart 會進入DISKPART&gt;的模式
+
+3. 輸入list disk 會秀出所有的磁碟編號 可以用容量來看出隨身碟或SD卡是哪一個
+
+4. 輸入select disk # 來選擇你的磁碟 #是磁碟編號
+
+5. 輸入clean 這個指令會將磁碟清空
+
+6. 輸入create partition primary 重新建立一個分割區
+
+7. 輸入select partition 1 選擇剛建立的分割區
+
+8. 輸入active 將其設定為可開機
+
+9. 輸入format fs=fat32 將它格式化成FAT32
+
+10. 輸入assign letter=Y 將它掛到一個磁碟代號 這裡是用Y
+
+11. 輸入exit 離開這個程式
+
+接下來一樣是用xcopy X:\*.* /s /e /f Y:\來複製檔案
+
+X是光碟機 Y是你的隨身碟或SD卡 這樣就完成了！" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="從隨身碟安裝 Windows 7 或 Windows Server 2008 R2" />
+    <meta property="twitter:title" content="從隨身碟安裝 Windows 7 或 Windows Server 2008 R2" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>從隨身碟安裝 Windows 7 或 Windows Server 2008 R2</h1>
+
+  <div class="entry">
+    微軟官方有提供一個工具 不過它一定要吃 ISO 檔 沒辦法從光碟來做<br />
+<br />
+這裡有個簡單的方法：<br />
+<br />
+1. 首先開啟「命令提示字元」 (記得用 Administrator 的權限開)<br />
+<br />
+2. 輸入<code class="syntax text">Y:</code> 來切到你的光碟機 Y為光碟機代號<br />
+<br />
+3. 輸入下面兩道指令 X為隨身碟代號<br />
+<pre class="syntax text">.\boot\bootsect.exe /NT60 X:
+xcopy *.* /s /e /f X:\
+</pre>看你隨身碟的速度而定 會複製一段時間<br />
+<br />
+完成後就能用來安裝了！<br />
+<br />
+<span class="Apple-style-span" style="color: red;">UPDATE:</span><br />
+<br />
+如果上述步驟無法成功的話或是使用SD讀卡機<br />
+<br />
+可以試試以下的方法<br />
+<br />
+1. 一樣使用 Administrator 的權限開啟「命令提示字元」<br />
+<br />
+2. 輸入<code class="syntax text">diskpart</code> 會進入<code class="syntax text">DISKPART&gt;</code>的模式<br />
+<br />
+3. 輸入<code class="syntax text">list disk</code> 會秀出所有的磁碟編號 可以用容量來看出隨身碟或SD卡是哪一個<br />
+<br />
+4. 輸入<code class="syntax text">select disk #</code> 來選擇你的磁碟 #是磁碟編號<br />
+<br />
+5. 輸入<code class="syntax text">clean</code> 這個指令會將磁碟清空<br />
+<br />
+6. 輸入<code class="syntax text">create partition primary</code> 重新建立一個分割區<br />
+<br />
+7. 輸入<code class="syntax text">select partition 1</code> 選擇剛建立的分割區<br />
+<br />
+8. 輸入<code class="syntax text">active</code> 將其設定為可開機<br />
+<br />
+9. 輸入<code class="syntax text">format fs=fat32</code> 將它格式化成FAT32<br />
+<br />
+10. 輸入<code class="syntax text">assign letter=Y</code> 將它掛到一個磁碟代號 這裡是用Y<br />
+<br />
+11. 輸入<code class="syntax text">exit</code> 離開這個程式<br />
+<br />
+接下來一樣是用<code class="syntax text">xcopy X:\*.* /s /e /f Y:\</code>來複製檔案<br />
+<br />
+X是光碟機 Y是你的隨身碟或SD卡 這樣就完成了！
+  </div>
+
+  <div class="date">
+    Written on April 30, 2011
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2011/04/30/windows-7-windows-server-2008-r2/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2011/04/30/windows-7-windows-server-2008-r2/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2011/04/30/windows-7-windows-server-2008-r2/',
+		  'title': '從隨身碟安裝 Windows 7 或 Windows Server 2008 R2'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

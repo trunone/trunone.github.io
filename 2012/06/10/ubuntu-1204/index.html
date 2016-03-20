@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>啟動 Ubuntu 12.04 休眠 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Ubuntu 12.04 預設並沒有啟動休眠的功能
+
+官方的說法是因為許多電腦休眠時會出現問題
+
+所以讓使用者自行決定
+
+先用這個指令測試休眠是否正常
+$ sudo pm-hibernate
+
+能正常重開機後 新增一個檔案
+/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+並輸入下列內容
+[Re-enable hibernate by default]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+重開機後休眠的選項就可以使用了
+
+Reference: How do I hibernate my computer?" />
+    <meta property="og:description" content="Ubuntu 12.04 預設並沒有啟動休眠的功能
+
+官方的說法是因為許多電腦休眠時會出現問題
+
+所以讓使用者自行決定
+
+先用這個指令測試休眠是否正常
+$ sudo pm-hibernate
+
+能正常重開機後 新增一個檔案
+/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+並輸入下列內容
+[Re-enable hibernate by default]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+重開機後休眠的選項就可以使用了
+
+Reference: How do I hibernate my computer?" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="啟動 Ubuntu 12.04 休眠" />
+    <meta property="twitter:title" content="啟動 Ubuntu 12.04 休眠" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>啟動 Ubuntu 12.04 休眠</h1>
+
+  <div class="entry">
+    Ubuntu 12.04 預設並沒有啟動休眠的功能<br />
+<br />
+官方的說法是因為許多電腦休眠時會出現問題<br />
+<br />
+所以讓使用者自行決定<br />
+<br />
+先用這個指令測試休眠是否正常<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;color:black;background:white;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">$</span> sudo pm-hibernate
+</pre></div><br />
+能正常重開機後 新增一個檔案<br />
+<i>/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla</i><br />
+並輸入下列內容<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;color:black;background:white;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">[Re-enable hibernate by default]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+</pre></div><br />
+重開機後休眠的選項就可以使用了<br />
+<br />
+Reference: <a href=https://help.ubuntu.com/12.04/ubuntu-help/power-hibernate.html>How do I hibernate my computer?</a>
+  </div>
+
+  <div class="date">
+    Written on June 10, 2012
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a style="font-weight: bold;"" href=" /2012/06/10/ubuntu-1204/ ">English</a> |
+
+<a " href=" /zh_TW/2012/06/10/ubuntu-1204/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2012/06/10/ubuntu-1204/',
+		  'title': '啟動 Ubuntu 12.04 休眠'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

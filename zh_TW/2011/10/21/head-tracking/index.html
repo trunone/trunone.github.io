@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>頭部追縱(Head Tracking)簡介 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="以前常在電影裡看到一個很酷的畫面，
+就是主角的頭移到哪，螢幕上的畫面就會跟著跑到哪
+但其實現在很容易可以做到了，主要有兩種。
+
+" />
+    <meta property="og:description" content="以前常在電影裡看到一個很酷的畫面，
+就是主角的頭移到哪，螢幕上的畫面就會跟著跑到哪
+但其實現在很容易可以做到了，主要有兩種。
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="頭部追縱(Head Tracking)簡介" />
+    <meta property="twitter:title" content="頭部追縱(Head Tracking)簡介" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>頭部追縱(Head Tracking)簡介</h1>
+
+  <div class="entry">
+    <p>以前常在電影裡看到一個很酷的畫面，
+就是主角的頭移到哪，螢幕上的畫面就會跟著跑到哪
+但其實現在很容易可以做到了，主要有兩種。</p>
+
+<p>一種是臉部追縱，
+顧名思義就是透找出你臉部所朝向的位置來決定移動的方向。
+在硬體上很方便準備，只要有一台足夠解析度的 Webcam 和一張正常人的臉(誤)</p>
+
+<p>軟體方面較成熟的是用 FaceTraceNoIR 與遊戲連接配合 faceAPI 做臉部辨識，
+但缺點是你得要有一顆夠快的 CPU，因為要從一張出片中找出人臉是要一定計算量的。
+何況是每秒要處理30張以上，或者是用兩台電腦，一台玩遊戲，一台做追縱也行。
+我希望我的CPU資源不要浪費在頭部追縱上，因此就不用這個方法，下面是faceAPI官方的介紹影片：</p>
+
+<div class="separator" style="clear: both; text-align: center;"><iframe width="420" height="315" src="http://www.youtube.com/embed/BduSDvUU6MY" frameborder="0" allowfullscreen=""></iframe></div>
+<p>另一種方法就是使用紅外線，這是什麼意思呢？
+其實一樣是使用攝影機，但比較特別是我們要讓它只接收紅外線。</p>
+
+<p>接下來再想辦法在頭上弄出幾個紅外線發射源。
+這裡又分兩種方式，反射式與發射式。</p>
+
+<p>反射式是在鏡頭旁裝上 IR LED 照到你的頭部，
+然後在你的頭上黏一些可以反射的東西像是鋁鉑紙之類的。
+好處是頭上不用裝電池盒或接一條電線，但是要改造 Webcam 較多，而且要多比較多顆的 IR LED</p>
+
+<p>那發射式就是直接在頭上裝 IR LED，好處是光源穩定 IR LED 最多四顆就非常足夠了。</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/6DOF_en.jpg" alt="6-DOF" />
+如果你是正常人的話，上面這張圖就你的頭能移動的六個自由度(6 Degree of Freedom)。
+那麼要是只使用一顆 IR LED，電腦就只能算出你的兩個自由度(2DoF) 也就是Yaw和Pitch</p>
+
+<p>那使用三顆IR LED就能算出六個自由度，而四顆的話是可以減少不確定的方向。
+但是其實只要用三顆品質好一點一 IR LED 就沒什麼問題了。</p>
+
+<p>Reference:</p>
+
+<ul>
+  <li><a href="http://www.seeingmachines.com/product/faceapi/">faceAPI</a></li>
+  <li><a href="http://www.free-track.net/english/">FreeTrack</a></li>
+</ul>
+
+  </div>
+
+  <div class="date">
+    Written on October 21, 2011
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2011/10/21/head-tracking/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2011/10/21/head-tracking/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2011/10/21/head-tracking/',
+		  'title': '頭部追縱(Head Tracking)簡介'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

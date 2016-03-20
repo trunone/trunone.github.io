@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>檔名與文字檔簡體轉正體 (iconv) – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="以下都是由 UTF-8 簡體轉 UTF-8 正體
+
+轉換指定資料夾檔名：
+#!/bin/bash
+#simplified chinese filename to traditional chinese filename
+function main() 
+{
+    for fileName in *
+    do
+        echo &#39;   Converting: &quot;&#39;$fileName&#39;&quot;...&#39;;
+        mv &quot;$fileName&quot; `echo $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8`
+    done;
+    
+    for folderName in `ls -F | grep &#39;/&#39;`
+    do
+        echo &#39;  Into: &quot;&#39;$folderName&#39;&quot;.&#39;;
+        cd &quot;$folderName&quot;;
+        main;
+        cd ..;
+    done;
+}
+cd &quot;$1&quot;;
+main;
+
+轉換指定資料夾文字檔：
+#!/bin/bash
+#simplified chinese files to traditional chinese files
+function main() 
+{
+    mkdir -p converted
+    for fileName in `ls -F | grep &quot;.txt&quot;` 
+    do
+        echo &#39;   Converting: &quot;&#39;$fileName&#39;&quot;...&#39;;
+        cat $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8 &gt; ./converted/$fileName
+    done;
+    
+    for folderName in `ls -F | grep &#39;/&#39;`
+    do
+        if [ $folderName != &quot;converted&quot; ]
+        then
+            echo &#39;  Into: &quot;&#39;$folderName&#39;&quot;.&#39;;
+            cd &quot;$folderName&quot;;
+            main;
+            cd ..;
+        fi
+    done;
+}
+cd &quot;$1&quot;;
+main;
+" />
+    <meta property="og:description" content="以下都是由 UTF-8 簡體轉 UTF-8 正體
+
+轉換指定資料夾檔名：
+#!/bin/bash
+#simplified chinese filename to traditional chinese filename
+function main() 
+{
+    for fileName in *
+    do
+        echo &#39;   Converting: &quot;&#39;$fileName&#39;&quot;...&#39;;
+        mv &quot;$fileName&quot; `echo $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8`
+    done;
+    
+    for folderName in `ls -F | grep &#39;/&#39;`
+    do
+        echo &#39;  Into: &quot;&#39;$folderName&#39;&quot;.&#39;;
+        cd &quot;$folderName&quot;;
+        main;
+        cd ..;
+    done;
+}
+cd &quot;$1&quot;;
+main;
+
+轉換指定資料夾文字檔：
+#!/bin/bash
+#simplified chinese files to traditional chinese files
+function main() 
+{
+    mkdir -p converted
+    for fileName in `ls -F | grep &quot;.txt&quot;` 
+    do
+        echo &#39;   Converting: &quot;&#39;$fileName&#39;&quot;...&#39;;
+        cat $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8 &gt; ./converted/$fileName
+    done;
+    
+    for folderName in `ls -F | grep &#39;/&#39;`
+    do
+        if [ $folderName != &quot;converted&quot; ]
+        then
+            echo &#39;  Into: &quot;&#39;$folderName&#39;&quot;.&#39;;
+            cd &quot;$folderName&quot;;
+            main;
+            cd ..;
+        fi
+    done;
+}
+cd &quot;$1&quot;;
+main;
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="檔名與文字檔簡體轉正體 (iconv)" />
+    <meta property="twitter:title" content="檔名與文字檔簡體轉正體 (iconv)" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>檔名與文字檔簡體轉正體 (iconv)</h1>
+
+  <div class="entry">
+    以下都是由 UTF-8 簡體轉 UTF-8 正體<br />
+<br />
+轉換指定資料夾檔名：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #808080">#!/bin/bash</span>
+<span style="color: #808080">#simplified chinese filename to traditional chinese filename</span>
+<span style="color: #008000; font-weight: bold">function </span>main<span style="color: #303030">()</span> 
+<span style="color: #303030">{</span>
+    <span style="color: #008000; font-weight: bold">for </span>fileName in *
+    <span style="color: #008000; font-weight: bold">do</span>
+<span style="color: #008000; font-weight: bold">        </span><span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&#39;   Converting: &quot;&#39;</span><span style="color: #906030">$fileName</span><span style="background-color: #fff0f0">&#39;&quot;...&#39;</span>;
+        mv <span style="background-color: #fff0f0">&quot;$fileName&quot;</span> <span style="background-color: #fff0f0">`</span><span style="color: #007020">echo</span> <span style="color: #906030">$fileName</span> | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8<span style="background-color: #fff0f0">`</span>
+    <span style="color: #008000; font-weight: bold">done</span>;
+    
+    <span style="color: #008000; font-weight: bold">for </span>folderName in <span style="background-color: #fff0f0">`</span>ls -F | grep <span style="background-color: #fff0f0">&#39;/&#39;`</span>
+    <span style="color: #008000; font-weight: bold">do</span>
+<span style="color: #008000; font-weight: bold">        </span><span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&#39;  Into: &quot;&#39;</span><span style="color: #906030">$folderName</span><span style="background-color: #fff0f0">&#39;&quot;.&#39;</span>;
+        <span style="color: #007020">cd</span> <span style="background-color: #fff0f0">&quot;$folderName&quot;</span>;
+        main;
+        <span style="color: #007020">cd</span> ..;
+    <span style="color: #008000; font-weight: bold">done</span>;
+<span style="color: #303030">}</span>
+<span style="color: #007020">cd</span> <span style="background-color: #fff0f0">&quot;$1&quot;</span>;
+main;
+</pre></div><br />
+轉換指定資料夾文字檔：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #808080">#!/bin/bash</span>
+<span style="color: #808080">#simplified chinese files to traditional chinese files</span>
+<span style="color: #008000; font-weight: bold">function </span>main<span style="color: #303030">()</span> 
+<span style="color: #303030">{</span>
+    mkdir -p converted
+    <span style="color: #008000; font-weight: bold">for </span>fileName in <span style="background-color: #fff0f0">`</span>ls -F | grep <span style="background-color: #fff0f0">&quot;.txt&quot;`</span> 
+    <span style="color: #008000; font-weight: bold">do</span>
+<span style="color: #008000; font-weight: bold">        </span><span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&#39;   Converting: &quot;&#39;</span><span style="color: #906030">$fileName</span><span style="background-color: #fff0f0">&#39;&quot;...&#39;</span>;
+        cat <span style="color: #906030">$fileName</span> | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8 &gt; ./converted/<span style="color: #906030">$fileName</span>
+    <span style="color: #008000; font-weight: bold">done</span>;
+    
+    <span style="color: #008000; font-weight: bold">for </span>folderName in <span style="background-color: #fff0f0">`</span>ls -F | grep <span style="background-color: #fff0f0">&#39;/&#39;`</span>
+    <span style="color: #008000; font-weight: bold">do</span>
+<span style="color: #008000; font-weight: bold">        if</span> <span style="color: #303030">[</span> <span style="color: #906030">$folderName</span> !<span style="color: #303030">=</span> <span style="background-color: #fff0f0">&quot;converted&quot;</span> <span style="color: #303030">]</span>
+        <span style="color: #008000; font-weight: bold">then</span>
+<span style="color: #008000; font-weight: bold">            </span><span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&#39;  Into: &quot;&#39;</span><span style="color: #906030">$folderName</span><span style="background-color: #fff0f0">&#39;&quot;.&#39;</span>;
+            <span style="color: #007020">cd</span> <span style="background-color: #fff0f0">&quot;$folderName&quot;</span>;
+            main;
+            <span style="color: #007020">cd</span> ..;
+        <span style="color: #008000; font-weight: bold">fi</span>
+<span style="color: #008000; font-weight: bold">    done</span>;
+<span style="color: #303030">}</span>
+<span style="color: #007020">cd</span> <span style="background-color: #fff0f0">&quot;$1&quot;</span>;
+main;
+</pre></div>
+  </div>
+
+  <div class="date">
+    Written on April 29, 2013
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2013/04/29/iconv/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2013/04/29/iconv/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2013/04/29/iconv/',
+		  'title': '檔名與文字檔簡體轉正體 (iconv)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

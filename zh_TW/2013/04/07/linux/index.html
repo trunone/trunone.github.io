@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Linux 簡易隨身碟效能測試 – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="主要是使用 Unix-like 系統中都有的 dd 指令來做測試
+
+讀取測試：
+$ sudo dd if=/dev/sdX# of=/dev/null bs=1M count=400 iflag=direct
+
+bs=1M: 以 1MB 為單位
+count=400: 讀取 400 次
+iflag=direct: 直接存取，不經過快取
+
+寫入測試：
+!!!注意請使用在空的随身碟 若有重要檔案可能會被破壞!!!
+$ sudo dd if=/dev/zero of=/dev/sdX# bs=1M count=400 skip=1000 oflag=direct
+
+if=/dev/zero: 寫入 0x0，可換為 /dev/urandom，寫入亂數測試
+skip=1000: 跳過開頭 1GB 的空間" />
+    <meta property="og:description" content="主要是使用 Unix-like 系統中都有的 dd 指令來做測試
+
+讀取測試：
+$ sudo dd if=/dev/sdX# of=/dev/null bs=1M count=400 iflag=direct
+
+bs=1M: 以 1MB 為單位
+count=400: 讀取 400 次
+iflag=direct: 直接存取，不經過快取
+
+寫入測試：
+!!!注意請使用在空的随身碟 若有重要檔案可能會被破壞!!!
+$ sudo dd if=/dev/zero of=/dev/sdX# bs=1M count=400 skip=1000 oflag=direct
+
+if=/dev/zero: 寫入 0x0，可換為 /dev/urandom，寫入亂數測試
+skip=1000: 跳過開頭 1GB 的空間" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="Linux 簡易隨身碟效能測試" />
+    <meta property="twitter:title" content="Linux 簡易隨身碟效能測試" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>Linux 簡易隨身碟效能測試</h1>
+
+  <div class="entry">
+    主要是使用 Unix-like 系統中都有的 dd 指令來做測試<br />
+<br />
+讀取測試：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #906030">$ </span>sudo dd <span style="color: #008000; font-weight: bold">if</span><span style="color: #303030">=</span>/dev/sdX# <span style="color: #906030">of</span><span style="color: #303030">=</span>/dev/null <span style="color: #906030">bs</span><span style="color: #303030">=</span>1M <span style="color: #906030">count</span><span style="color: #303030">=</span>400 <span style="color: #906030">iflag</span><span style="color: #303030">=</span>direct
+</pre></div><br />
+<b>bs=1M</b>: 以 1MB 為單位<br />
+<b>count=400</b>: 讀取 400 次<br />
+<b>iflag=direct</b>: 直接存取，不經過快取<br />
+<br />
+寫入測試：<br />
+<span style="color: red;"><b>!!!注意請使用在空的随身碟 若有重要檔案可能會被破壞!!!</b></span><br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #906030">$ </span>sudo dd <span style="color: #008000; font-weight: bold">if</span><span style="color: #303030">=</span>/dev/zero <span style="color: #906030">of</span><span style="color: #303030">=</span>/dev/sdX# <span style="color: #906030">bs</span><span style="color: #303030">=</span>1M <span style="color: #906030">count</span><span style="color: #303030">=</span>400 <span style="color: #906030">skip</span><span style="color: #303030">=</span>1000 <span style="color: #906030">oflag</span><span style="color: #303030">=</span>direct
+</pre></div><br />
+<b>if=/dev/zero</b>: 寫入 0x0，可換為 <i>/dev/urandom</i>，寫入亂數測試<br />
+<b>skip=1000</b>: 跳過開頭 1GB 的空間
+  </div>
+
+  <div class="date">
+    Written on April  7, 2013
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2013/04/07/linux/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2013/04/07/linux/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2013/04/07/linux/',
+		  'title': 'Linux 簡易隨身碟效能測試'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

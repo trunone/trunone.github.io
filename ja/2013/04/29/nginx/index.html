@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>編譯與安裝 nginx 並結合 PHP – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="新增 www 使用者：
+% sudo adduser --system --no-create-home --disabled-login --disabled-password --group www
+
+編譯與安裝 nginx:
+% ./configure --with-http_ssl_module --with-http_gzip_static_module --user=www --group=www
+% make
+% sudo make install
+
+安裝 PHP:
+% sudo apt-get install php5-fpm
+
+新增到 nginx.conf:
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ \.php$ {
+    root           html;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $docment_root$fastcgi_script_name;
+    include        fastcgi_params;
+    # NOTE: You should have &quot;cgi.fix_pathinfo = 0;&quot; in php.ini
+}
+
+新增 /etc/init.d/nginx:
+#! /bin/sh
+
+" />
+    <meta property="og:description" content="新增 www 使用者：
+% sudo adduser --system --no-create-home --disabled-login --disabled-password --group www
+
+編譯與安裝 nginx:
+% ./configure --with-http_ssl_module --with-http_gzip_static_module --user=www --group=www
+% make
+% sudo make install
+
+安裝 PHP:
+% sudo apt-get install php5-fpm
+
+新增到 nginx.conf:
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ \.php$ {
+    root           html;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $docment_root$fastcgi_script_name;
+    include        fastcgi_params;
+    # NOTE: You should have &quot;cgi.fix_pathinfo = 0;&quot; in php.ini
+}
+
+新增 /etc/init.d/nginx:
+#! /bin/sh
+
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="編譯與安裝 nginx 並結合 PHP" />
+    <meta property="twitter:title" content="編譯與安裝 nginx 並結合 PHP" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>編譯與安裝 nginx 並結合 PHP</h1>
+
+  <div class="entry">
+    新增 www 使用者：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> sudo adduser --system --no-create-home --disabled-login --disabled-password --group www
+</pre></div><br />
+編譯與安裝 nginx:<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> ./configure --with-http_ssl_module --with-http_gzip_static_module --user<span style="color: #303030">=</span>www --group<span style="color: #303030">=</span>www
+<span style="color: #c65d09; font-weight: bold">%</span> make
+<span style="color: #c65d09; font-weight: bold">%</span> sudo make install
+</pre></div><br />
+安裝 PHP:<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> sudo apt-get install php5-fpm
+</pre></div><br />
+新增到 <i>nginx.conf</i>:<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ \.php$ {
+    root           html;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $docment_root$fastcgi_script_name;
+    include        fastcgi_params;
+    # NOTE: You should have &quot;cgi.fix_pathinfo = 0;&quot; in php.ini
+}
+</pre></div><br />
+新增 <i>/etc/init.d/nginx</i>:<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #808080">#! /bin/sh</span>
+
+<span style="color: #808080">### BEGIN INIT INFO</span>
+<span style="color: #808080"># Provides:          nginx</span>
+<span style="color: #808080"># Required-Start:    $all</span>
+<span style="color: #808080"># Required-Stop:     $all</span>
+<span style="color: #808080"># Default-Start:     2 3 4 5</span>
+<span style="color: #808080"># Default-Stop:      0 1 6</span>
+<span style="color: #808080"># Short-Description: starts the nginx web server</span>
+<span style="color: #808080"># Description:       starts nginx using start-stop-daemon</span>
+<span style="color: #808080">### END INIT INFO</span>
+
+<span style="color: #906030">PATH</span><span style="color: #303030">=</span>/usr/local/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+<span style="color: #906030">DAEMON</span><span style="color: #303030">=</span>/usr/local/nginx/sbin/nginx
+<span style="color: #906030">NAME</span><span style="color: #303030">=</span>nginx
+<span style="color: #906030">DESC</span><span style="color: #303030">=</span>nginx
+
+<span style="color: #007020">test</span> -x <span style="color: #906030">$DAEMON</span> <span style="color: #303030">||</span> <span style="color: #007020">exit </span>0
+
+<span style="color: #007020">set</span> -e
+
+<span style="color: #008000; font-weight: bold">case</span> <span style="background-color: #fff0f0">&quot;$1&quot;</span> in
+  start<span style="color: #303030">)</span>
+        <span style="color: #007020">echo</span> -n <span style="background-color: #fff0f0">&quot;Starting $DESC: &quot;</span>
+        start-stop-daemon --start --quiet --pidfile /usr/local/nginx/logs/<span style="color: #906030">$NAME</span>.pid <span style="color: #606060; font-weight: bold; background-color: #fff0f0">\</span>
+                --exec <span style="color: #906030">$DAEMON</span> -- <span style="color: #906030">$DAEMON_OPTS</span>
+        <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;$NAME.&quot;</span>
+        ;;
+  stop<span style="color: #303030">)</span>
+        <span style="color: #007020">echo</span> -n <span style="background-color: #fff0f0">&quot;Stopping $DESC: &quot;</span>
+        start-stop-daemon --stop --quiet --pidfile /usr/local/nginx/logs/<span style="color: #906030">$NAME</span>.pid <span style="color: #606060; font-weight: bold; background-color: #fff0f0">\</span>
+                --exec <span style="color: #906030">$DAEMON</span>
+        <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;$NAME.&quot;</span>
+        ;;
+  restart|force-reload<span style="color: #303030">)</span>
+        <span style="color: #007020">echo</span> -n <span style="background-color: #fff0f0">&quot;Restarting $DESC: &quot;</span>
+        start-stop-daemon --stop --quiet --pidfile <span style="color: #606060; font-weight: bold; background-color: #fff0f0">\</span>
+                /usr/local/nginx/logs/<span style="color: #906030">$NAME</span>.pid --exec <span style="color: #906030">$DAEMON</span>
+        sleep 1
+        start-stop-daemon --start --quiet --pidfile <span style="color: #606060; font-weight: bold; background-color: #fff0f0">\</span>
+                /usr/local/nginx/logs/<span style="color: #906030">$NAME</span>.pid --exec <span style="color: #906030">$DAEMON</span> -- <span style="color: #906030">$DAEMON_OPTS</span>
+        <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;$NAME.&quot;</span>
+        ;;
+  reload<span style="color: #303030">)</span>
+          <span style="color: #007020">echo</span> -n <span style="background-color: #fff0f0">&quot;Reloading $DESC configuration: &quot;</span>
+          start-stop-daemon --stop --signal HUP --quiet --pidfile     /usr/local/nginx/logs/<span style="color: #906030">$NAME</span>.pid <span style="color: #606060; font-weight: bold; background-color: #fff0f0">\</span>
+              --exec <span style="color: #906030">$DAEMON</span>
+          <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;$NAME.&quot;</span>
+          ;;
+      *<span style="color: #303030">)</span>
+            <span style="color: #906030">N</span><span style="color: #303030">=</span>/etc/init.d/<span style="color: #906030">$NAME</span>
+            <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;Usage: $N {start|stop|restart|reload|force-reload}&quot;</span> &gt;&amp;2
+            <span style="color: #007020">exit </span>1
+            ;;
+    <span style="color: #008000; font-weight: bold">esac</span>
+
+<span style="color: #008000; font-weight: bold">    </span><span style="color: #007020">exit </span>0
+</pre></div><br />
+開機自動啟動：<br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">%</span> sudo chmod +x /etc/init.d/nginx
+<span style="color: #c65d09; font-weight: bold">%</span> sudo /usr/sbin/update-rc.d -f nginx defaults
+</pre></div><br />
+Note: 修改伺服器名稱<br />
+<i>src/http/ngx_http_header_filter_module.c</i><br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">static</span> <span style="color: #303090; font-weight: bold">char</span> ngx_http_server_string[] <span style="color: #303030">=</span> <span style="background-color: #fff0f0">&quot;Server: nginx&quot;</span> CRLF;
+</pre></div><i>src/core/nginx.h</i><br />
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #507090">#define NGINX_VER          &quot;nginx/&quot; NGINX_VERSION</span>
+</pre></div>
+  </div>
+
+  <div class="date">
+    Written on April 29, 2013
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2013/04/29/nginx/ ">English</a> |
+
+<a " href=" /zh_TW/2013/04/29/nginx/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2013/04/29/nginx/',
+		  'title': '編譯與安裝 nginx 並結合 PHP'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

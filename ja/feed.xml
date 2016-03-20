@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="/ja/feed.xml" rel="self" type="application/atom+xml" /><link href="/ja/" rel="alternate" type="text/html" /><updated>2016-03-20T10:36:34+08:00</updated><id>/</id><title>Discover Endless Truth</title><subtitle>The future is infinity possible!</subtitle><entry><title>移除資料夾以外之檔案執行權限</title><link href="/ja/2016/03/03/remove-file-executable-permission/" rel="alternate" type="text/html" title="移除資料夾以外之檔案執行權限" /><published>2016-03-03T00:00:00+08:00</published><updated>2016-03-03T00:00:00+08:00</updated><id>/2016/03/03/remove-file-executable-permission</id><content type="html" xml:base="/2016/03/03/remove-file-executable-permission/">&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;find . -type f -print 0 | xargs -0 chmod a-x&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;find . : 在目前路徑下尋找。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;-type f : 只尋找檔案 (-type d 則為尋找目錄)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;-print0 : 印出檔案名稱時，將各檔案名稱以 null 字元隔開。這可以避免檔名中有空白時判斷錯誤。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;xargs : 對每一個輸出的檔案執行一個命令。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;-0 : 以 null 字元為分隔來執行命令&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;chmod a-x : 移除所有執行權限&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><summary>$ find . -type f -print 0 | xargs -0 chmod a-x</summary></entry><entry><title>編譯 vim 7.3 與 vimgdb</title><link href="/ja/2013/05/07/vim-73-vimgdb/" rel="alternate" type="text/html" title="編譯 vim 7.3 與 vimgdb" /><published>2013-05-07T01:29:00+08:00</published><updated>2013-05-07T01:29:00+08:00</updated><id>/2013/05/07/vim-73-vimgdb</id><content type="html" xml:base="/2013/05/07/vim-73-vimgdb/">安裝所需套件：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo apt-get install libreadline6-dev liblua5.1-0-dev liblua5.1-0-dev
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+使用 git clone vimgdb：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; git clone git://github.com/larrupingpig/vimgdb-for-vim7.3.git
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+將 vimgdb patch 進 vim：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; patch -p0 &amp;lt; vimgdb-for-vim7.3/vim73.patch
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+修改&lt;i&gt;if_lua.c&lt;/i&gt;：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lua.h&amp;gt;&lt;/span&gt;
+&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lualib.h&amp;gt;&lt;/span&gt;
+&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lauxlib.h&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lua5.1/lua.h&amp;gt;&lt;/span&gt;
+&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lua5.1/lualib.h&amp;gt;&lt;/span&gt;
+&lt;span style=&quot;color: #507090&quot;&gt;#include &amp;lt;lua5.1/lauxlib.h&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+修改&lt;i&gt;auto/configure&lt;/i&gt;：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #906030&quot;&gt;LUA_LIBS&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;-L${vi_cv_path_lua_pfx}/lib -llua&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #906030&quot;&gt;LUA_LIBS&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;-L${vi_cv_path_lua_pfx}/lib -llua5.1&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+編譯與安裝：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; make
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo make install
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="Ubuntu" /><summary>安裝所需套件：
+% sudo apt-get install libreadline6-dev liblua5.1-0-dev liblua5.1-0-dev
+
+使用 git clone vimgdb：
+% git clone git://github.com/larrupingpig/vimgdb-for-vim7.3.git
+
+將 vimgdb patch 進 vim：
+% patch -p0 &amp;lt; vimgdb-for-vim7.3/vim73.patch
+
+修改if_lua.c：
+#include &amp;lt;lua.h&amp;gt;
+#include &amp;lt;lualib.h&amp;gt;
+#include &amp;lt;lauxlib.h&amp;gt;
+
+#include &amp;lt;lua5.1/lua.h&amp;gt;
+#include &amp;lt;lua5.1/lualib.h&amp;gt;
+#include &amp;lt;lua5.1/lauxlib.h&amp;gt;
+
+修改auto/configure：
+LUA_LIBS=&amp;quot;-L${vi_cv_path_lua_pfx}/lib -llua&amp;quot;
+
+LUA_LIBS=&amp;quot;-L${vi_cv_path_lua_pfx}/lib -llua5.1&amp;quot;
+
+編譯與安裝：
+% make
+% sudo make install</summary></entry><entry><title>更改藍牙名稱</title><link href="/ja/2013/05/06/change-bluetooth-name/" rel="alternate" type="text/html" title="更改藍牙名稱" /><published>2013-05-06T07:33:00+08:00</published><updated>2013-05-06T07:33:00+08:00</updated><id>/2013/05/06/change-bluetooth-name</id><content type="html" xml:base="/2013/05/06/change-bluetooth-name/">&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo hciconfig hci0 name YourName
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="Ubuntu" /><summary>% sudo hciconfig hci0 name YourName</summary></entry><entry><title>設定 Linux 函式庫路徑</title><link href="/ja/2013/04/30/linux_30/" rel="alternate" type="text/html" title="設定 Linux 函式庫路徑" /><published>2013-04-30T09:15:00+08:00</published><updated>2013-04-30T09:15:00+08:00</updated><id>/2013/04/30/linux_30</id><content type="html" xml:base="/2013/04/30/linux_30/">在 Linux 下增加程式讀取函式庫路徑的方法&lt;br /&gt;
+&lt;br /&gt;
+當執行時：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; &lt;span style=&quot;color: #906030&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/path/to/custom/lib Command
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+新增到環境變數：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;export &lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/path/to/custom/lib
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+新增到系統設定中：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo ldconfig /path/to/custom/lib/
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="Ubuntu" /><summary>在 Linux 下增加程式讀取函式庫路徑的方法
+
+當執行時：
+% LD_LIBRARY_PATH=/path/to/custom/lib Command
+
+新增到環境變數：
+% export LD_LIBRARY_PATH=/path/to/custom/lib
+
+新增到系統設定中：
+% sudo ldconfig /path/to/custom/lib/</summary></entry><entry><title>檔名與文字檔簡體轉正體 (iconv)</title><link href="/ja/2013/04/29/iconv/" rel="alternate" type="text/html" title="檔名與文字檔簡體轉正體 (iconv)" /><published>2013-04-29T03:42:00+08:00</published><updated>2013-04-29T03:42:00+08:00</updated><id>/2013/04/29/iconv</id><content type="html" xml:base="/2013/04/29/iconv/">以下都是由 UTF-8 簡體轉 UTF-8 正體&lt;br /&gt;
+&lt;br /&gt;
+轉換指定資料夾檔名：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #808080&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;#simplified chinese filename to traditional chinese filename&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;function &lt;/span&gt;main&lt;span style=&quot;color: #303030&quot;&gt;()&lt;/span&gt; 
+&lt;span style=&quot;color: #303030&quot;&gt;{&lt;/span&gt;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;for &lt;/span&gt;fileName in *
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;do&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;   Converting: &amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;$fileName&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;&amp;quot;...&amp;#39;&lt;/span&gt;;
+        mv &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$fileName&amp;quot;&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;`&lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;color: #906030&quot;&gt;$fileName&lt;/span&gt; | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8&lt;span style=&quot;background-color: #fff0f0&quot;&gt;`&lt;/span&gt;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;done&lt;/span&gt;;
+    
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;for &lt;/span&gt;folderName in &lt;span style=&quot;background-color: #fff0f0&quot;&gt;`&lt;/span&gt;ls -F | grep &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;/&amp;#39;`&lt;/span&gt;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;do&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;  Into: &amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;$folderName&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;&amp;quot;.&amp;#39;&lt;/span&gt;;
+        &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$folderName&amp;quot;&lt;/span&gt;;
+        main;
+        &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; ..;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;done&lt;/span&gt;;
+&lt;span style=&quot;color: #303030&quot;&gt;}&lt;/span&gt;
+&lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt;;
+main;
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+轉換指定資料夾文字檔：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #808080&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;#simplified chinese files to traditional chinese files&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;function &lt;/span&gt;main&lt;span style=&quot;color: #303030&quot;&gt;()&lt;/span&gt; 
+&lt;span style=&quot;color: #303030&quot;&gt;{&lt;/span&gt;
+    mkdir -p converted
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;for &lt;/span&gt;fileName in &lt;span style=&quot;background-color: #fff0f0&quot;&gt;`&lt;/span&gt;ls -F | grep &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;.txt&amp;quot;`&lt;/span&gt; 
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;do&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;   Converting: &amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;$fileName&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;&amp;quot;...&amp;#39;&lt;/span&gt;;
+        cat &lt;span style=&quot;color: #906030&quot;&gt;$fileName&lt;/span&gt; | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8 &amp;gt; ./converted/&lt;span style=&quot;color: #906030&quot;&gt;$fileName&lt;/span&gt;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;done&lt;/span&gt;;
+    
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;for &lt;/span&gt;folderName in &lt;span style=&quot;background-color: #fff0f0&quot;&gt;`&lt;/span&gt;ls -F | grep &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;/&amp;#39;`&lt;/span&gt;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;do&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;        if&lt;/span&gt; &lt;span style=&quot;color: #303030&quot;&gt;[&lt;/span&gt; &lt;span style=&quot;color: #906030&quot;&gt;$folderName&lt;/span&gt; !&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;converted&amp;quot;&lt;/span&gt; &lt;span style=&quot;color: #303030&quot;&gt;]&lt;/span&gt;
+        &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;then&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;            &lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;  Into: &amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;$folderName&lt;/span&gt;&lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;&amp;quot;.&amp;#39;&lt;/span&gt;;
+            &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$folderName&amp;quot;&lt;/span&gt;;
+            main;
+            &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; ..;
+        &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;fi&lt;/span&gt;
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;    done&lt;/span&gt;;
+&lt;span style=&quot;color: #303030&quot;&gt;}&lt;/span&gt;
+&lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt;;
+main;
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><summary>以下都是由 UTF-8 簡體轉 UTF-8 正體
+
+轉換指定資料夾檔名：
+#!/bin/bash
+#simplified chinese filename to traditional chinese filename
+function main() 
+{
+    for fileName in *
+    do
+        echo &amp;#39;   Converting: &amp;quot;&amp;#39;$fileName&amp;#39;&amp;quot;...&amp;#39;;
+        mv &amp;quot;$fileName&amp;quot; `echo $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8`
+    done;
+    
+    for folderName in `ls -F | grep &amp;#39;/&amp;#39;`
+    do
+        echo &amp;#39;  Into: &amp;quot;&amp;#39;$folderName&amp;#39;&amp;quot;.&amp;#39;;
+        cd &amp;quot;$folderName&amp;quot;;
+        main;
+        cd ..;
+    done;
+}
+cd &amp;quot;$1&amp;quot;;
+main;
+
+轉換指定資料夾文字檔：
+#!/bin/bash
+#simplified chinese files to traditional chinese files
+function main() 
+{
+    mkdir -p converted
+    for fileName in `ls -F | grep &amp;quot;.txt&amp;quot;` 
+    do
+        echo &amp;#39;   Converting: &amp;quot;&amp;#39;$fileName&amp;#39;&amp;quot;...&amp;#39;;
+        cat $fileName | iconv -c -f utf8 -t gb2312 | iconv -c -f gb2312 -t big5 | iconv -c -f big5 -t utf8 &amp;gt; ./converted/$fileName
+    done;
+    
+    for folderName in `ls -F | grep &amp;#39;/&amp;#39;`
+    do
+        if [ $folderName != &amp;quot;converted&amp;quot; ]
+        then
+            echo &amp;#39;  Into: &amp;quot;&amp;#39;$folderName&amp;#39;&amp;quot;.&amp;#39;;
+            cd &amp;quot;$folderName&amp;quot;;
+            main;
+            cd ..;
+        fi
+    done;
+}
+cd &amp;quot;$1&amp;quot;;
+main;</summary></entry><entry><title>編譯與安裝 nginx 並結合 PHP</title><link href="/ja/2013/04/29/nginx/" rel="alternate" type="text/html" title="編譯與安裝 nginx 並結合 PHP" /><published>2013-04-29T03:18:00+08:00</published><updated>2013-04-29T03:18:00+08:00</updated><id>/2013/04/29/nginx</id><content type="html" xml:base="/2013/04/29/nginx/">新增 www 使用者：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo adduser --system --no-create-home --disabled-login --disabled-password --group www
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+編譯與安裝 nginx:&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; ./configure --with-http_ssl_module --with-http_gzip_static_module --user&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;www --group&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;www
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; make
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo make install
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+安裝 PHP:&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo apt-get install php5-fpm
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+新增到 &lt;i&gt;nginx.conf&lt;/i&gt;:&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ \.php$ {
+    root           html;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $docment_root$fastcgi_script_name;
+    include        fastcgi_params;
+    # NOTE: You should have &amp;quot;cgi.fix_pathinfo = 0;&amp;quot; in php.ini
+}
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+新增 &lt;i&gt;/etc/init.d/nginx&lt;/i&gt;:&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #808080&quot;&gt;#! /bin/sh&lt;/span&gt;
+
+&lt;span style=&quot;color: #808080&quot;&gt;### BEGIN INIT INFO&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Provides:          nginx&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Required-Start:    $all&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Required-Stop:     $all&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Default-Start:     2 3 4 5&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Default-Stop:      0 1 6&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Short-Description: starts the nginx web server&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;# Description:       starts nginx using start-stop-daemon&lt;/span&gt;
+&lt;span style=&quot;color: #808080&quot;&gt;### END INIT INFO&lt;/span&gt;
+
+&lt;span style=&quot;color: #906030&quot;&gt;PATH&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/usr/local/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+&lt;span style=&quot;color: #906030&quot;&gt;DAEMON&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/usr/local/nginx/sbin/nginx
+&lt;span style=&quot;color: #906030&quot;&gt;NAME&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;nginx
+&lt;span style=&quot;color: #906030&quot;&gt;DESC&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;nginx
+
+&lt;span style=&quot;color: #007020&quot;&gt;test&lt;/span&gt; -x &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt; &lt;span style=&quot;color: #303030&quot;&gt;||&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;exit &lt;/span&gt;0
+
+&lt;span style=&quot;color: #007020&quot;&gt;set&lt;/span&gt; -e
+
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;case&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; in
+  start&lt;span style=&quot;color: #303030&quot;&gt;)&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; -n &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Starting $DESC: &amp;quot;&lt;/span&gt;
+        start-stop-daemon --start --quiet --pidfile /usr/local/nginx/logs/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;.pid &lt;span style=&quot;color: #606060; font-weight: bold; background-color: #fff0f0&quot;&gt;\&lt;/span&gt;
+                --exec &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt; -- &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON_OPTS&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$NAME.&amp;quot;&lt;/span&gt;
+        ;;
+  stop&lt;span style=&quot;color: #303030&quot;&gt;)&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; -n &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Stopping $DESC: &amp;quot;&lt;/span&gt;
+        start-stop-daemon --stop --quiet --pidfile /usr/local/nginx/logs/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;.pid &lt;span style=&quot;color: #606060; font-weight: bold; background-color: #fff0f0&quot;&gt;\&lt;/span&gt;
+                --exec &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$NAME.&amp;quot;&lt;/span&gt;
+        ;;
+  restart|force-reload&lt;span style=&quot;color: #303030&quot;&gt;)&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; -n &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Restarting $DESC: &amp;quot;&lt;/span&gt;
+        start-stop-daemon --stop --quiet --pidfile &lt;span style=&quot;color: #606060; font-weight: bold; background-color: #fff0f0&quot;&gt;\&lt;/span&gt;
+                /usr/local/nginx/logs/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;.pid --exec &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt;
+        sleep 1
+        start-stop-daemon --start --quiet --pidfile &lt;span style=&quot;color: #606060; font-weight: bold; background-color: #fff0f0&quot;&gt;\&lt;/span&gt;
+                /usr/local/nginx/logs/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;.pid --exec &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt; -- &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON_OPTS&lt;/span&gt;
+        &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$NAME.&amp;quot;&lt;/span&gt;
+        ;;
+  reload&lt;span style=&quot;color: #303030&quot;&gt;)&lt;/span&gt;
+          &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; -n &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Reloading $DESC configuration: &amp;quot;&lt;/span&gt;
+          start-stop-daemon --stop --signal HUP --quiet --pidfile     /usr/local/nginx/logs/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;.pid &lt;span style=&quot;color: #606060; font-weight: bold; background-color: #fff0f0&quot;&gt;\&lt;/span&gt;
+              --exec &lt;span style=&quot;color: #906030&quot;&gt;$DAEMON&lt;/span&gt;
+          &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;$NAME.&amp;quot;&lt;/span&gt;
+          ;;
+      *&lt;span style=&quot;color: #303030&quot;&gt;)&lt;/span&gt;
+            &lt;span style=&quot;color: #906030&quot;&gt;N&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/etc/init.d/&lt;span style=&quot;color: #906030&quot;&gt;$NAME&lt;/span&gt;
+            &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Usage: $N {start|stop|restart|reload|force-reload}&amp;quot;&lt;/span&gt; &amp;gt;&amp;amp;2
+            &lt;span style=&quot;color: #007020&quot;&gt;exit &lt;/span&gt;1
+            ;;
+    &lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;esac&lt;/span&gt;
+
+&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;    &lt;/span&gt;&lt;span style=&quot;color: #007020&quot;&gt;exit &lt;/span&gt;0
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+開機自動啟動：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo chmod +x /etc/init.d/nginx
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo /usr/sbin/update-rc.d -f nginx defaults
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+Note: 修改伺服器名稱&lt;br /&gt;
+&lt;i&gt;src/http/ngx_http_header_filter_module.c&lt;/i&gt;&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #008000; font-weight: bold&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #303090; font-weight: bold&quot;&gt;char&lt;/span&gt; ngx_http_server_string[] &lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;Server: nginx&amp;quot;&lt;/span&gt; CRLF;
+&lt;/pre&gt;&lt;/div&gt;&lt;i&gt;src/core/nginx.h&lt;/i&gt;&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #507090&quot;&gt;#define NGINX_VER          &amp;quot;nginx/&amp;quot; NGINX_VERSION&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="Ubuntu" /><summary>新增 www 使用者：
+% sudo adduser --system --no-create-home --disabled-login --disabled-password --group www
+
+編譯與安裝 nginx:
+% ./configure --with-http_ssl_module --with-http_gzip_static_module --user=www --group=www
+% make
+% sudo make install
+
+安裝 PHP:
+% sudo apt-get install php5-fpm
+
+新增到 nginx.conf:
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ \.php$ {
+    root           html;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $docment_root$fastcgi_script_name;
+    include        fastcgi_params;
+    # NOTE: You should have &amp;quot;cgi.fix_pathinfo = 0;&amp;quot; in php.ini
+}
+
+新增 /etc/init.d/nginx:
+#! /bin/sh</summary></entry><entry><title>編譯與安裝 PHP OAuth</title><link href="/ja/2013/04/29/php-oauth/" rel="alternate" type="text/html" title="編譯與安裝 PHP OAuth" /><published>2013-04-29T03:12:00+08:00</published><updated>2013-04-29T03:12:00+08:00</updated><id>/2013/04/29/php-oauth</id><content type="html" xml:base="/2013/04/29/php-oauth/">&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo apt-get install php5-dev
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .3em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; wget http://pecl.php.net/get/oauth
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; tar -xvzf oauth-x.x.x.tgz
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd &lt;/span&gt;oauth-x.x.x/
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; phpize
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; ./configure
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; make 
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo make install
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;%&lt;/span&gt; sudo &lt;span style=&quot;color: #007020&quot;&gt;echo &lt;/span&gt;&lt;span style=&quot;color: #906030&quot;&gt;extension&lt;/span&gt;&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/usr/lib/php5/&lt;span style=&quot;color: #303030&quot;&gt;[&lt;/span&gt;date&lt;span style=&quot;color: #303030&quot;&gt;]&lt;/span&gt;/oauth.so &amp;gt; /etc/php5/conf.d/oauth.ini
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="Ubuntu" /><summary>% sudo apt-get install php5-dev
+
+% wget http://pecl.php.net/get/oauth
+% tar -xvzf oauth-x.x.x.tgz
+% cd oauth-x.x.x/
+% phpize
+% ./configure
+% make 
+% sudo make install
+% sudo echo extension=/usr/lib/php5/[date]/oauth.so &amp;gt; /etc/php5/conf.d/oauth.ini</summary></entry><entry><title>執行 eagle 所需函式庫 (Ubuntu 10.04)</title><link href="/ja/2013/04/13/eagle-ubuntu-1004/" rel="alternate" type="text/html" title="執行 eagle 所需函式庫 (Ubuntu 10.04)" /><published>2013-04-13T23:48:00+08:00</published><updated>2013-04-13T23:48:00+08:00</updated><id>/2013/04/13/eagle-ubuntu-1004</id><content type="html" xml:base="/2013/04/13/eagle-ubuntu-1004/">&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; wget ftp://ftp.cadsoft.de/eagle/program/6.0/eagle-lin-6.4.0.run
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; sed -e &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;1,/^__DATA__$/d&amp;#39;&lt;/span&gt; eagle-lin-6.0.0.run &amp;gt; eagle-lin-6.4.0.tar.bz2
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; tar xvjf eagle-lin-6.4.0.tar.bz2
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd &lt;/span&gt;eagle-6.4.0/bin
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; wget http://dl.dropbox.com/u/4295670/eagle_libs.tar.bz2
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; tar xvjf eagle_libs.tar.bz2
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;echo&lt;/span&gt; &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;#39;LD_LIBRARY_PATH=&amp;quot;$(dirname &amp;quot;$0&amp;quot;)&amp;quot; &amp;quot;$(dirname &amp;quot;$0&amp;quot;)/eagle&amp;quot; $@&amp;#39;&lt;/span&gt; &amp;gt; eagle.run
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; chmod +x eagle.run
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="PCB Layout" /><category term="Linux" /><category term="Ubuntu" /><summary>$ wget ftp://ftp.cadsoft.de/eagle/program/6.0/eagle-lin-6.4.0.run
+$ sed -e &amp;#39;1,/^__DATA__$/d&amp;#39; eagle-lin-6.0.0.run &amp;gt; eagle-lin-6.4.0.tar.bz2
+$ tar xvjf eagle-lin-6.4.0.tar.bz2
+$ cd eagle-6.4.0/bin
+$ wget http://dl.dropbox.com/u/4295670/eagle_libs.tar.bz2
+$ tar xvjf eagle_libs.tar.bz2
+$ echo &amp;#39;LD_LIBRARY_PATH=&amp;quot;$(dirname &amp;quot;$0&amp;quot;)&amp;quot; &amp;quot;$(dirname &amp;quot;$0&amp;quot;)/eagle&amp;quot; $@&amp;#39; &amp;gt; eagle.run
+$ chmod +x eagle.run</summary></entry><entry><title>同時燒錄 sof 與 elf 於 EPCS (DE0-Nano)</title><link href="/ja/2013/04/13/sof-elf-epcs-de0-nano/" rel="alternate" type="text/html" title="同時燒錄 sof 與 elf 於 EPCS (DE0-Nano)" /><published>2013-04-13T14:18:00+08:00</published><updated>2013-04-13T14:18:00+08:00</updated><id>/2013/04/13/sof-elf-epcs-de0-nano</id><content type="html" xml:base="/2013/04/13/sof-elf-epcs-de0-nano/">&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; &lt;span style=&quot;color: #906030&quot;&gt;$QUARTUS_INSTALL_PATH&lt;/span&gt;/nios2eds/bin/elf2flash --input&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;software.elf --output&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;software.flash --epcs --verbose
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;$&lt;/span&gt; &lt;span style=&quot;color: #906030&quot;&gt;$QUARTUS_INSTALL_PATH&lt;/span&gt;/nios2eds/bin/nios2-gnutools/H-i686-pc-linux-gnu/bin/nios2-elf-objcopy -I srec -O ihex software.flash software.hex
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+先用上面的指令將軟體的 elf 檔轉為 hex 檔&lt;br /&gt;
+再到 Quartus II 開啟 &lt;b&gt;File &gt; Convert Programming File...&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://2.bp.blogspot.com/-z-HGvddhutk/UWj34QbliUI/AAAAAAAABN0/eY-n8JI5_T0/s1600/Capture.PNG&quot; imageanchor=&quot;1&quot; &gt;&lt;img border=&quot;0&quot; src=&quot;http://2.bp.blogspot.com/-z-HGvddhutk/UWj34QbliUI/AAAAAAAABN0/eY-n8JI5_T0/s320/Capture.PNG&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+依照上圖設定 再將轉出之 jic 檔用 Quartus II Programmer 燒錄即可</content><author><name>Chih-En Wu</name></author><category term="Nios II" /><category term="Quartus II" /><category term="Altera" /><category term="Verilog" /><category term="Terasic" /><summary>$ $QUARTUS_INSTALL_PATH/nios2eds/bin/elf2flash --input=software.elf --output=software.flash --epcs --verbose
+
+
+$ $QUARTUS_INSTALL_PATH/nios2eds/bin/nios2-gnutools/H-i686-pc-linux-gnu/bin/nios2-elf-objcopy -I srec -O ihex software.flash software.hex
+
+先用上面的指令將軟體的 elf 檔轉為 hex 檔
+再到 Quartus II 開啟 File &gt; Convert Programming File...
+
+
+
+依照上圖設定 再將轉出之 jic 檔用 Quartus II Programmer 燒錄即可</summary></entry><entry><title>手動編譯 git 原始碼與安裝 (CentOS 5)</title><link href="/ja/2013/04/11/git-centos-5/" rel="alternate" type="text/html" title="手動編譯 git 原始碼與安裝 (CentOS 5)" /><published>2013-04-11T00:54:00+08:00</published><updated>2013-04-11T00:54:00+08:00</updated><id>/2013/04/11/git-centos-5</id><content type="html" xml:base="/2013/04/11/git-centos-5/">使用 Yum 移除及安裝所需套件：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; yum remove curl curl-devel
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; yum install zlib zlib-devel libssh2 libssh2-devel openssl openssl-devel expat expat-devel
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+下載 cURL 原始碼並編譯及安裝：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; /usr/local/src/
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; wget &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;http://curl.haxx.se/download/curl-7.21.3.tar.gz&amp;quot;&lt;/span&gt;
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; tar xzf curl-7.21.3.tar.gz
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; rm curl-7.21.3.tar.gz
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; ln -s curl-7.21.3 curl
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd &lt;/span&gt;curl/
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make clean
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; ./configure --libdir&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/usr/lib64 --with-libssh2 --enable-shared --with-ssl --prefix&lt;span style=&quot;color: #303030&quot;&gt;=&lt;/span&gt;/usr
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make install
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+下載 git 原始碼並編譯及安裝：&lt;br /&gt;
+&lt;!-- HTML generated using hilite.me --&gt;&lt;div style=&quot;background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;&quot;&gt;&lt;pre style=&quot;margin: 0; line-height: 125%&quot;&gt;&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd&lt;/span&gt; /usr/local/src
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; wget &lt;span style=&quot;background-color: #fff0f0&quot;&gt;&amp;quot;https://git-core.googlecode.com/files/git-1.8.2.1.tar.gz&amp;quot;&lt;/span&gt;
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; bunzip2 git-1.7.4.tar.bz2
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; tar xf git-1.7.4.tar
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; rm git-1.7.4.tar
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; ln -s git-1.7.4 git
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; &lt;span style=&quot;color: #007020&quot;&gt;cd &lt;/span&gt;git/
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make clean
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; ./configure --with-curl --with-openssl --with-expat
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make
+&lt;span style=&quot;color: #c65d09; font-weight: bold&quot;&gt;#&lt;/span&gt; make install
+&lt;/pre&gt;&lt;/div&gt;</content><author><name>Chih-En Wu</name></author><category term="Linux" /><category term="CentOS" /><category term="Git" /><summary>使用 Yum 移除及安裝所需套件：
+# yum remove curl curl-devel
+# yum install zlib zlib-devel libssh2 libssh2-devel openssl openssl-devel expat expat-devel
+
+下載 cURL 原始碼並編譯及安裝：
+# cd /usr/local/src/
+# wget &amp;quot;http://curl.haxx.se/download/curl-7.21.3.tar.gz&amp;quot;
+# tar xzf curl-7.21.3.tar.gz
+# rm curl-7.21.3.tar.gz
+# ln -s curl-7.21.3 curl
+# cd curl/
+# make clean
+# ./configure --libdir=/usr/lib64 --with-libssh2 --enable-shared --with-ssl --prefix=/usr
+# make
+# make install
+
+下載 git 原始碼並編譯及安裝：
+# cd /usr/local/src
+# wget &amp;quot;https://git-core.googlecode.com/files/git-1.8.2.1.tar.gz&amp;quot;
+# bunzip2 git-1.7.4.tar.bz2
+# tar xf git-1.7.4.tar
+# rm git-1.7.4.tar
+# ln -s git-1.7.4 git
+# cd git/
+# make clean
+# ./configure --with-curl --with-openssl --with-expat
+# make
+# make install</summary></entry></feed>

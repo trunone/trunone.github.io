@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>安裝 rtorrent (CentOS) – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="最近想說總不能老是玩Ubuntu 就找了套RPM系的Linux來裝
+
+找來找去就找上 CentOS 了 裝完後玩了一下
+
+發現 yum 官方支援的套件好少啊
+
+想來養個動物 結果發現沒我常用的 rtorrent
+
+網路上找的RPM也都不是最新版 只好自已DIY了
+安裝開發工具
+yum install gcc gcc-c++ m4 make automake libtool pkgconfig perl openssl-devel ncurses-devel
+抓取原始碼
+http://curl.haxx.se/download/curl-x.x.x.tar.gz http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/libsigc++-x.x.x.tar.gz http://libtorrent.rakshasa.no/downloads/libtorrent-x.x.x.tar.gz http://libtorrent.rakshasa.no/downloads/rtorrent-x.x.x.tar.gz x.x.x是版本號 找最新的抓
+解壓縮
+# tar -xvzf curl-x.x.x.tar.gz
+# tar -xvzf libsigc++-x.x.x.tar.gz
+# tar -xvzf libtorrent-x.x.x.tar.gz
+# tar -xvzf rtorrent-x.x.x.tar.gz
+編譯與安裝curl
+# cd curl-x.x.x
+# ./configure
+# make
+# make install
+編譯與安裝libsigc++
+# cd libsigc++-2.2.4
+# ./configure
+# make
+# make install
+編譯與安裝libtorrent
+# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+# cd libtorrent-0.12.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+編譯與安裝rtorrent
+# cd rtorrent-0.8.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+" />
+    <meta property="og:description" content="最近想說總不能老是玩Ubuntu 就找了套RPM系的Linux來裝
+
+找來找去就找上 CentOS 了 裝完後玩了一下
+
+發現 yum 官方支援的套件好少啊
+
+想來養個動物 結果發現沒我常用的 rtorrent
+
+網路上找的RPM也都不是最新版 只好自已DIY了
+安裝開發工具
+yum install gcc gcc-c++ m4 make automake libtool pkgconfig perl openssl-devel ncurses-devel
+抓取原始碼
+http://curl.haxx.se/download/curl-x.x.x.tar.gz http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/libsigc++-x.x.x.tar.gz http://libtorrent.rakshasa.no/downloads/libtorrent-x.x.x.tar.gz http://libtorrent.rakshasa.no/downloads/rtorrent-x.x.x.tar.gz x.x.x是版本號 找最新的抓
+解壓縮
+# tar -xvzf curl-x.x.x.tar.gz
+# tar -xvzf libsigc++-x.x.x.tar.gz
+# tar -xvzf libtorrent-x.x.x.tar.gz
+# tar -xvzf rtorrent-x.x.x.tar.gz
+編譯與安裝curl
+# cd curl-x.x.x
+# ./configure
+# make
+# make install
+編譯與安裝libsigc++
+# cd libsigc++-2.2.4
+# ./configure
+# make
+# make install
+編譯與安裝libtorrent
+# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+# cd libtorrent-0.12.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+編譯與安裝rtorrent
+# cd rtorrent-0.8.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="安裝 rtorrent (CentOS)" />
+    <meta property="twitter:title" content="安裝 rtorrent (CentOS)" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>安裝 rtorrent (CentOS)</h1>
+
+  <div class="entry">
+    最近想說總不能老是玩Ubuntu 就找了套RPM系的Linux來裝<br />
+<br />
+找來找去就找上 CentOS 了 裝完後玩了一下<br />
+<br />
+發現 yum 官方支援的套件好少啊<br />
+<br />
+想來養個動物 結果發現沒我常用的 rtorrent<br />
+<br />
+網路上找的RPM也都不是最新版 只好自已DIY了<br />
+<ol><li><h2>安裝開發工具</h2></li>
+yum install gcc gcc-c++ m4 make automake libtool pkgconfig perl openssl-devel ncurses-devel
+<li><h2>抓取原始碼</h2></li>
+<a href=http://curl.haxx.se/download/>http://curl.haxx.se/download/curl-x.x.x.tar.gz</a> <a href=http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/>http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/libsigc++-x.x.x.tar.gz</a> <a href=http://libtorrent.rakshasa.no/downloads/>http://libtorrent.rakshasa.no/downloads/libtorrent-x.x.x.tar.gz</a> <a href=http://libtorrent.rakshasa.no/downloads/>http://libtorrent.rakshasa.no/downloads/rtorrent-x.x.x.tar.gz</a> x.x.x是版本號 找最新的抓
+<li><h2>解壓縮</h2></li>
+<pre class="syntax escaped bash"># tar -xvzf curl-x.x.x.tar.gz
+# tar -xvzf libsigc++-x.x.x.tar.gz
+# tar -xvzf libtorrent-x.x.x.tar.gz
+# tar -xvzf rtorrent-x.x.x.tar.gz
+</pre><li><h2>編譯與安裝curl</h2></li>
+<pre class="syntax escaped bash"># cd curl-x.x.x
+# ./configure
+# make
+# make install
+</pre><li><h2>編譯與安裝libsigc++</h2></li>
+<pre class="syntax escaped bash"># cd libsigc++-2.2.4
+# ./configure
+# make
+# make install
+</pre><li><h2>編譯與安裝libtorrent</h2></li>
+<pre class="syntax escaped bash"># export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+# cd libtorrent-0.12.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+</pre><li><h2>編譯與安裝rtorrent</h2></li>
+<pre class="syntax escaped bash"># cd rtorrent-0.8.5
+# rm -f scripts/{libtool,lt*}.m4
+# ./autogen.sh
+# ./configure
+# make
+# make install
+</pre></ol>
+  </div>
+
+  <div class="date">
+    Written on March 25, 2012
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a " href=" /2012/03/25/centosrtorrent/ ">English</a> |
+
+<a style="font-weight: bold;"" href=" /zh_TW/2012/03/25/centosrtorrent/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2012/03/25/centosrtorrent/',
+		  'title': '安裝 rtorrent (CentOS)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>

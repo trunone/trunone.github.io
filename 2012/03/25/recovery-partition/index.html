@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>如何刪除還原磁區(Recovery Partition) – Discover Endless Truth – The future is infinity possible!</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="有的人買套裝PC或是筆電
+
+常常會發現硬碟裡有大約10GB左右的還原磁區
+
+但是他沒有這個需要 想刪卻刪不掉 那就白佔了硬碟的空間
+
+雖然現在硬碟都很大了 不過還是有點浪費
+
+使用管理員權限開啟命令提示字元
+執行Diskpart
+輸入diskpart後按Enter
+掃描所有的分割區與磁碟
+在DISKPART>輸入rescan後按Enter
+列出所有磁碟
+在DISKPART>輸入list disk後按Enter 這個動作會列出所有的磁碟及它們的編號
+選擇含有還原磁區的磁碟
+在DISKPART>輸入select disk X X為還原磁區所在的磁碟編號 通常是disk 0
+列出所選擇擇磁碟的所有分割區
+在DISKPART>輸入list partition後輸入Enter 這個動作會列出剛所選擇的磁碟裡所有的分割區
+選擇要刪除的還原磁區
+在DISKPART>輸入select partition X後輸入Enter X為還原磁區的分割區編號 通常是最後一個 可以依容量來分辨
+刪除所選擇的分割區
+要非常確定前一步驟所選擇的分割區是正確的 否則失敗了就無法還原  在DISKPART>輸入delete partition後輸入Enter
+重新開機
+
+這樣就刪除掉還原分割區了 接下來就是如何利用它囉" />
+    <meta property="og:description" content="有的人買套裝PC或是筆電
+
+常常會發現硬碟裡有大約10GB左右的還原磁區
+
+但是他沒有這個需要 想刪卻刪不掉 那就白佔了硬碟的空間
+
+雖然現在硬碟都很大了 不過還是有點浪費
+
+使用管理員權限開啟命令提示字元
+執行Diskpart
+輸入diskpart後按Enter
+掃描所有的分割區與磁碟
+在DISKPART>輸入rescan後按Enter
+列出所有磁碟
+在DISKPART>輸入list disk後按Enter 這個動作會列出所有的磁碟及它們的編號
+選擇含有還原磁區的磁碟
+在DISKPART>輸入select disk X X為還原磁區所在的磁碟編號 通常是disk 0
+列出所選擇擇磁碟的所有分割區
+在DISKPART>輸入list partition後輸入Enter 這個動作會列出剛所選擇的磁碟裡所有的分割區
+選擇要刪除的還原磁區
+在DISKPART>輸入select partition X後輸入Enter X為還原磁區的分割區編號 通常是最後一個 可以依容量來分辨
+刪除所選擇的分割區
+要非常確定前一步驟所選擇的分割區是正確的 否則失敗了就無法還原  在DISKPART>輸入delete partition後輸入Enter
+重新開機
+
+這樣就刪除掉還原分割區了 接下來就是如何利用它囉" />
+    
+    <meta name="author" content="Discover Endless Truth" />
+
+    
+    <meta property="og:title" content="如何刪除還原磁區(Recovery Partition)" />
+    <meta property="twitter:title" content="如何刪除還原磁區(Recovery Partition)" />
+    
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Discover Endless Truth - The future is infinity possible!" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/Viovie-com/viovie-com.github.io/master/images/trunone.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Discover Endless Truth</a></h1>
+          <p class="site-description">The future is infinity possible!</p>
+        </div>
+
+        <nav>
+          <a href="/">Blog</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container">
+    <article class="post">
+  <h1>如何刪除還原磁區(Recovery Partition)</h1>
+
+  <div class="entry">
+    有的人買套裝PC或是筆電<br />
+<br />
+常常會發現硬碟裡有大約10GB左右的還原磁區<br />
+<br />
+但是他沒有這個需要 想刪卻刪不掉 那就白佔了硬碟的空間<br />
+<br />
+雖然現在硬碟都很大了 不過還是有點浪費<br />
+<br />
+<ol><li><h2>使用管理員權限開啟命令提示字元</h2></li>
+<li><h2>執行Diskpart</h2></li>
+輸入<b>diskpart</b>後按<b>Enter</b>
+<li><h2>掃描所有的分割區與磁碟</h2></li>
+在<b>DISKPART></b>輸入<b>rescan</b>後按<b>Enter</b>
+<li><h2>列出所有磁碟</h2></li>
+在<b>DISKPART></b>輸入<b>list disk</b>後按<b>Enter</b> 這個動作會列出所有的磁碟及它們的編號
+<li><h2>選擇含有還原磁區的磁碟</h2></li>
+在<b>DISKPART></b>輸入<b>select disk X</b> <ul><li><b>X</b>為還原磁區所在的磁碟編號 通常是<b>disk 0</b></li>
+</ul><li><h2>列出所選擇擇磁碟的所有分割區</h2></li>
+在<b>DISKPART></b>輸入<b>list partition</b>後輸入<b>Enter</b> 這個動作會列出剛所選擇的磁碟裡所有的分割區
+<li><h2>選擇要刪除的還原磁區</h2></li>
+在<b>DISKPART></b>輸入<b>select partition X</b>後輸入<b>Enter</b> <ul><li><b>X</b>為還原磁區的分割區編號 通常是最後一個 可以依容量來分辨</li>
+</ul><li><h2>刪除所選擇的分割區</h2></li>
+要非常確定前一步驟所選擇的分割區是正確的 否則失敗了就無法還原  在<b>DISKPART></b>輸入<b>delete partition</b>後輸入<b>Enter</b>
+<li><h2>重新開機</h2></li>
+</ol><br />
+這樣就刪除掉還原分割區了 接下來就是如何利用它囉
+  </div>
+
+  <div class="date">
+    Written on March 25, 2012
+  </div>
+
+  
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        
+
+
+
+<a href="https://github.com/trunone"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/trunone"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/trunone"><i class="svg-icon twitter"></i></a>
+
+
+
+        <br /> View in:
+
+<a style="font-weight: bold;"" href=" /2012/03/25/recovery-partition/ ">English</a> |
+
+<a " href=" /zh_TW/2012/03/25/recovery-partition/ ">正體中文</a>
+
+      </footer>
+    </div>
+  </div>
+
+  
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-74588478-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2012/03/25/recovery-partition/',
+		  'title': '如何刪除還原磁區(Recovery Partition)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+</body>
+
+</html>
