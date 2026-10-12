@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>trunone - GitHub Portfolio & Repositories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --card-hover-border: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-color: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --badge-bg: #334155;
+      --badge-text: #cbd5e1;
+      --fork-badge-bg: #312e81;
+      --fork-badge-text: #a5b4fc;
+      --archived-badge-bg: #451a03;
+      --archived-badge-text: #fcd34d;
+      --search-bg: #0f172a;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    /* Header Profile Section */
+    header {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 3rem 0 2.5rem 0;
+    }
+
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 0 20px var(--accent-glow);
+      object-fit: cover;
+      background-color: var(--card-bg);
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .profile-info h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .profile-info h1 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .profile-info h1 a:hover {
+      color: var(--accent-color);
+    }
+
+    .profile-handle {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .stat-badge strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Controls / Filter Bar */
+    .controls-section {
+      padding: 2rem 0 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .search-filter-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.75rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--card-bg);
+      padding: 0.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-color);
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .secondary-filters {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .select-dropdown {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--accent-color);
+    }
+
+    .results-count {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Repo Grid */
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 0 3rem 0;
+    }
+
+    .repo-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .repo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .repo-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .repo-title a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .repo-title a:hover {
+      text-decoration: underline;
+    }
+
+    .type-badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .badge-fork {
+      background-color: var(--fork-badge-bg);
+      color: var(--fork-badge-text);
+    }
+
+    .badge-archived {
+      background-color: var(--archived-badge-bg);
+      color: var(--archived-badge-text);
+    }
+
+    .repo-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .repo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    .repo-lang {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+
+    .lang-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .repo-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .meta-item svg {
+      fill: var(--text-muted);
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Empty state */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--text-muted);
+      background: var(--card-bg);
+      border: 1px dashed var(--card-border);
+      border-radius: 12px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      background-color: #0b1120;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* Utility */
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .profile-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-stats {
+        justify-content: center;
+      }
+
+      .search-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filter-tabs {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="profile-card">
+        <img id="avatar" class="profile-avatar" src="https://avatars.githubusercontent.com/u/4298822?v=4" alt="trunone avatar">
+        <div class="profile-info">
+          <h1><a href="https://github.com/trunone" target="_blank" rel="noopener">trunone</a></h1>
+          <div class="profile-handle">github.com/trunone</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 650px;">
+            Open source developer focused on Android tools, Kotlin, C++ RTC components, Python automation, and hardware integrations.
+          </p>
+          <div class="profile-stats">
+            <div class="stat-badge">
+              <span>Repositories:</span> <strong id="stat-total">47</strong>
+            </div>
+            <div class="stat-badge">
+              <span>Source Projects:</span> <strong id="stat-sources">34</strong>
+            </div>
+            <div class="stat-badge">
+              <span>Forks:</span> <strong id="stat-forks">13</strong>
+            </div>
+            <div class="stat-badge">
+              <span>Followers:</span> <strong>13</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="container">
+    <div class="controls-section">
+      <div class="search-filter-row">
+        <!-- Search Bar -->
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search repositories by name, keyword, or description...">
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-type="all">All Repos (<span id="count-all">47</span>)</button>
+          <button class="tab-btn" data-type="sources">Sources (<span id="count-sources">34</span>)</button>
+          <button class="tab-btn" data-type="forks">Forks (<span id="count-forks">13</span>)</button>
+        </div>
+      </div>
+
+      <div class="secondary-filters">
+        <select id="language-filter" class="select-dropdown">
+          <option value="all">All Languages</option>
+        </select>
+
+        <select id="sort-filter" class="select-dropdown">
+          <option value="stars">Sort by Stars</option>
+          <option value="updated">Sort by Last Updated</option>
+          <option value="name">Sort by Name</option>
+        </select>
+
+        <div class="results-count" id="results-count">
+          Showing 47 repositories
+        </div>
+      </div>
+    </div>
+
+    <!-- Repository Cards Grid -->
+    <div id="repo-grid" class="repo-grid">
+      <!-- Dynamic Repo Cards Rendered Here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Created for <a href="https://github.com/trunone" target="_blank" rel="noopener">trunone</a> GitHub Pages | Automatically synced with GitHub API</p>
+    </div>
+  </footer>
+
+  <!-- Embedded Static Fallback Data -->
+  <script>
+    window.STATIC_REPOS = [
+  {
+    "name": "dual-manager",
+    "description": "Dual manager Android utility application.",
+    "html_url": "https://github.com/trunone/dual-manager",
+    "language": "Kotlin",
+    "stargazers_count": 4,
+    "forks_count": 2,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2026-10-07T06:02:35Z",
+    "pushed_at": "2026-10-07T06:02:40Z",
+    "topics": []
+  },
+  {
+    "name": "OpenHRIAudio",
+    "description": "OpenHRI Audio module for speech and acoustic processing.",
+    "html_url": "https://github.com/trunone/OpenHRIAudio",
+    "language": "Shell",
+    "stargazers_count": 1,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-05-18T10:11:15Z",
+    "topics": []
+  },
+  {
+    "name": "webtoon-to-epub",
+    "description": "A program to download a whole webtoon comic into a .epub file. (For use with an e-reader or similar.)",
+    "html_url": "https://github.com/trunone/webtoon-to-epub",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2026-02-22T01:39:39Z",
+    "pushed_at": "2026-02-22T01:42:33Z",
+    "topics": []
+  },
+  {
+    "name": "rime-liur",
+    "description": "基於RIME輸入法設計的全功能嘸蝦米方案 (RIME input method schema for Liu's Wubi/Boshiamy)",
+    "html_url": "https://github.com/trunone/rime-liur",
+    "language": "Shell",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2026-01-20T10:56:49Z",
+    "pushed_at": "2026-01-20T10:59:16Z",
+    "topics": []
+  },
+  {
+    "name": "scrcpy",
+    "description": "Display and control your Android device",
+    "html_url": "https://github.com/trunone/scrcpy",
+    "language": "C",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2025-08-30T09:20:13Z",
+    "pushed_at": "2025-08-30T09:20:11Z",
+    "topics": []
+  },
+  {
+    "name": "ohmybias-android",
+    "description": "極簡蝦米輸入法 — 純 Kotlin、零依賴、含聯想詞功能。",
+    "html_url": "https://github.com/trunone/ohmybias-android",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2025-08-25T13:46:16Z",
+    "pushed_at": "2025-08-25T13:47:04Z",
+    "topics": []
+  },
+  {
+    "name": "pysma",
+    "description": "Async library for SMA Solar's WebConnect interface",
+    "html_url": "https://github.com/trunone/pysma",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2025-06-03T16:03:00Z",
+    "pushed_at": "2025-06-03T16:02:57Z",
+    "topics": []
+  },
+  {
+    "name": "core",
+    "description": "🏡 Open source home automation that puts local control and privacy first.",
+    "html_url": "https://github.com/trunone/core",
+    "language": None,
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2025-05-12T13:20:12Z",
+    "pushed_at": "2025-05-12T13:16:32Z",
+    "topics": []
+  },
+  {
+    "name": "trunone.github.io",
+    "description": "Personal GitHub Pages introduction page and repository showcase.",
+    "html_url": "https://github.com/trunone/trunone.github.io",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2025-04-18T10:00:00Z",
+    "pushed_at": "2025-04-18T10:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "assest_screener",
+    "description": "Financial asset screening tools and notebooks.",
+    "html_url": "https://github.com/trunone/assest_screener",
+    "language": "Jupyter Notebook",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2025-02-17T03:59:45Z",
+    "pushed_at": "2025-02-17T03:59:36Z",
+    "topics": []
+  },
+  {
+    "name": "android_charging_status",
+    "description": "Android utility to monitor and report charging status.",
+    "html_url": "https://github.com/trunone/android_charging_status",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2024-11-20T10:31:36Z",
+    "pushed_at": "2024-11-20T10:31:33Z",
+    "topics": []
+  },
+  {
+    "name": "tasker_ui_actions",
+    "description": "Tasker UI action plugins and automation scripts.",
+    "html_url": "https://github.com/trunone/tasker_ui_actions",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2024-03-31T05:51:36Z",
+    "pushed_at": "2024-03-31T05:51:33Z",
+    "topics": []
+  },
+  {
+    "name": "BtRemote",
+    "description": "Bluetooth remote control application for Android.",
+    "html_url": "https://github.com/trunone/BtRemote",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2023-11-28T09:05:07Z",
+    "pushed_at": "2023-11-28T09:05:04Z",
+    "topics": []
+  },
+  {
+    "name": "android_folder_sync",
+    "description": "Folder synchronization utility for Android devices.",
+    "html_url": "https://github.com/trunone/android_folder_sync",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2023-10-18T13:42:33Z",
+    "pushed_at": "2023-10-18T13:42:30Z",
+    "topics": []
+  },
+  {
+    "name": "android_bluetooth_hid_emulator",
+    "description": "Bluetooth HID emulator for Android devices.",
+    "html_url": "https://github.com/trunone/android_bluetooth_hid_emulator",
+    "language": "Kotlin",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2023-09-02T16:21:42Z",
+    "pushed_at": "2023-09-02T16:21:39Z",
+    "topics": []
+  },
+  {
+    "name": "lan_monitor",
+    "description": "LAN network traffic and status monitoring tool.",
+    "html_url": "https://github.com/trunone/lan_monitor",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2023-01-08T06:15:37Z",
+    "pushed_at": "2023-01-08T06:15:34Z",
+    "topics": []
+  },
+  {
+    "name": "nodemcu_env",
+    "description": "NodeMCU environmental sensor data collector.",
+    "html_url": "https://github.com/trunone/nodemcu_env",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-12-04T07:12:15Z",
+    "pushed_at": "2022-12-04T07:12:12Z",
+    "topics": []
+  },
+  {
+    "name": "nodemcu_dsmr_p1",
+    "description": "NodeMCU DSMR P1 smart meter reader.",
+    "html_url": "https://github.com/trunone/nodemcu_dsmr_p1",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-12-04T07:12:02Z",
+    "pushed_at": "2022-12-04T07:11:59Z",
+    "topics": []
+  },
+  {
+    "name": "shell_tools",
+    "description": "Collection of helpful shell scripts and productivity tools.",
+    "html_url": "https://github.com/trunone/shell_tools",
+    "language": "Shell",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-09-03T11:25:40Z",
+    "pushed_at": "2022-09-03T11:25:37Z",
+    "topics": []
+  },
+  {
+    "name": "python_tools",
+    "description": "General purpose Python utilities and helpers.",
+    "html_url": "https://github.com/trunone/python_tools",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-09-03T11:23:44Z",
+    "pushed_at": "2022-09-03T11:23:41Z",
+    "topics": []
+  },
+  {
+    "name": "android_network_tools",
+    "description": "Android network tools and diagnostic library.",
+    "html_url": "https://github.com/trunone/android_network_tools",
+    "language": "Java",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2018-02-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "anyrpc",
+    "description": "Support for multiple RPC protocols in a single library",
+    "html_url": "https://github.com/trunone/anyrpc",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2016-01-08T15:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "clock_vfd",
+    "description": "VFD display clock controller implementation.",
+    "html_url": "https://github.com/trunone/clock_vfd",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2016-05-12T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "EngneeringOptimization",
+    "description": "Engineering optimization algorithms in C++.",
+    "html_url": "https://github.com/trunone/EngneeringOptimization",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-01-02T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "GPPlatformMain",
+    "description": "General Purpose Platform Main Component.",
+    "html_url": "https://github.com/trunone/GPPlatformMain",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-11-20T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "GPPlatformMonitor",
+    "description": "General Purpose Platform Monitoring Component.",
+    "html_url": "https://github.com/trunone/GPPlatformMonitor",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-11-20T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "hokuyoaist",
+    "description": "Hokuyo range sensor driver",
+    "html_url": "https://github.com/trunone/hokuyoaist",
+    "language": None,
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-11-05T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "istyle-verilog-formatter",
+    "description": "Implementation of a Verilog formatter",
+    "html_url": "https://github.com/trunone/istyle-verilog-formatter",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-09-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "jekyll-now",
+    "description": "Jekyll blog template setup.",
+    "html_url": "https://github.com/trunone/jekyll-now",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-03-15T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "KobukiAIST",
+    "description": "Kobuki mobile robot driver AIST wrapper.",
+    "html_url": "https://github.com/trunone/KobukiAIST",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-01T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "MainControllerRTC",
+    "description": "Main controller Real-Time Component (RTC).",
+    "html_url": "https://github.com/trunone/MainControllerRTC",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "MapperRTC",
+    "description": "2D SLAM Mapping Real-Time Component (RTC).",
+    "html_url": "https://github.com/trunone/MapperRTC",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-12T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "Mapper_MRPT",
+    "description": "MRPT-based mapping module.",
+    "html_url": "https://github.com/trunone/Mapper_MRPT",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-11-25T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "MobileControlRTC",
+    "description": "Mobile control Real-Time Component.",
+    "html_url": "https://github.com/trunone/MobileControlRTC",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-14T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "my_site",
+    "description": "Personal website repository.",
+    "html_url": "https://github.com/trunone/my_site",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-04-01T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "NoneIME",
+    "description": "Input Method Editor component.",
+    "html_url": "https://github.com/trunone/NoneIME",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2016-02-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "open-comments",
+    "description": "Open comments system component.",
+    "html_url": "https://github.com/trunone/open-comments",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-08-20T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "PathPlanningRTC",
+    "description": "Path planning Real-Time Component for robotics.",
+    "html_url": "https://github.com/trunone/PathPlanningRTC",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-14T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "pi_restful",
+    "description": "Raspberry Pi RESTful API service.",
+    "html_url": "https://github.com/trunone/pi_restful",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2016-04-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "PyDebugger",
+    "description": "Python debugging helper script.",
+    "html_url": "https://github.com/trunone/PyDebugger",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-06-01T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "python_assignments",
+    "description": "python_assignment exercises and solutions",
+    "html_url": "https://github.com/trunone/python_assignments",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2015-05-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "resistance",
+    "description": "The Resistance Online web implementation",
+    "html_url": "https://github.com/trunone/resistance",
+    "language": "CoffeeScript",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-08-10T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "rtchokuyoaist",
+    "description": "RT-Component for Hokuyo laser scanners",
+    "html_url": "https://github.com/trunone/rtchokuyoaist",
+    "language": None,
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": true,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-11-05T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "si7201",
+    "description": "Silicon Labs Si7201 sensor driver.",
+    "html_url": "https://github.com/trunone/si7201",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2017-03-20T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "TestRTComponents",
+    "description": "Test suite for RT Components.",
+    "html_url": "https://github.com/trunone/TestRTComponents",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-14T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "VoiceInterfaceRTC",
+    "description": "Voice interface Real-Time Component.",
+    "html_url": "https://github.com/trunone/VoiceInterfaceRTC",
+    "language": "C++",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": false,
+    "updated_at": "2022-07-29T10:43:18Z",
+    "pushed_at": "2014-12-14T12:00:00Z",
+    "topics": []
+  },
+  {
+    "name": "VoiceServiceRTC",
+    "description": "Voice service Real-Time Component.",
+    "html_url": "https://github.com/trunone/VoiceServiceRTC",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "fork": false,
+    "archived": true,
+    "updated_at": "2026-10-10T10:25:26Z",
+    "pushed_at": "2014-12-14T18:04:09Z",
+    "topics": []
+  }
+];
+  </script>
+
+  <!-- Application Logic -->
+  <script>
+    const LANG_COLORS = {
+      'Kotlin': '#A97BFF',
+      'Python': '#3572A5',
+      'C++': '#f34b7d',
+      'C': '#555555',
+      'Java': '#b07219',
+      'Shell': '#89e051',
+      'HTML': '#e34c26',
+      'CoffeeScript': '#244776',
+      'Jupyter Notebook': '#DA5B0B'
+    };
+
+    let allRepos = window.STATIC_REPOS;
+    let currentTab = 'all';
+    let searchQuery = '';
+    let selectedLang = 'all';
+    let selectedSort = 'stars';
+
+    const repoGrid = document.getElementById('repo-grid');
+    const searchInput = document.getElementById('search-input');
+    const langSelect = document.getElementById('language-filter');
+    const sortSelect = document.getElementById('sort-filter');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const resultsCount = document.getElementById('results-count');
+
+    // Fetch dynamic data if possible
+    async function initRepos() {
+      try {
+        const res = await fetch('https://api.github.com/users/trunone/repos?per_page=100');
+        if (res.ok) {
+          const liveData = await res.json();
+          if (Array.isArray(liveData) && liveData.length > 0) {
+            allRepos = liveData.map(r => ({
+              name: r.name,
+              description: r.description,
+              html_url: r.html_url,
+              language: r.language,
+              stargazers_count: r.stargazers_count,
+              forks_count: r.forks_count,
+              fork: r.fork,
+              archived: r.archived || false,
+              updated_at: r.updated_at,
+              pushed_at: r.pushed_at,
+              topics: r.topics || []
+            }));
+          }
+        }
+      } catch (err) {
+        console.log('Using pre-rendered fallback data:', err);
+      }
+
+      updateCounts();
+      populateLanguageDropdown();
+      render();
+    }
+
+    function updateCounts() {
+      const total = allRepos.length;
+      const sources = allRepos.filter(r => !r.fork).length;
+      const forks = allRepos.filter(r => r.fork).length;
+
+      document.getElementById('stat-total').innerText = total;
+      document.getElementById('stat-sources').innerText = sources;
+      document.getElementById('stat-forks').innerText = forks;
+
+      document.getElementById('count-all').innerText = total;
+      document.getElementById('count-sources').innerText = sources;
+      document.getElementById('count-forks').innerText = forks;
+    }
+
+    function populateLanguageDropdown() {
+      const languages = new Set();
+      allRepos.forEach(r => {
+        if (r.language) languages.add(r.language);
+      });
+
+      const sortedLangs = Array.from(languages).sort();
+      langSelect.innerHTML = '<option value="all">All Languages</option>';
+      sortedLangs.forEach(lang => {
+        const opt = document.createElement('option');
+        opt.value = lang;
+        opt.textContent = lang;
+        langSelect.appendChild(opt);
+      });
+    }
+
+    function render() {
+      let filtered = allRepos.filter(repo => {
+        // Tab filter
+        if (currentTab === 'sources' && repo.fork) return false;
+        if (currentTab === 'forks' && !repo.fork) return false;
+
+        // Language filter
+        if (selectedLang !== 'all' && repo.language !== selectedLang) return false;
+
+        // Search query filter
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase();
+          const matchName = repo.name.toLowerCase().includes(q);
+          const matchDesc = (repo.description || '').toLowerCase().includes(q);
+          const matchLang = (repo.language || '').toLowerCase().includes(q);
+          if (!matchName && !matchDesc && !matchLang) return false;
+        }
+
+        return true;
+      });
+
+      // Sorting
+      filtered.sort((a, b) => {
+        if (selectedSort === 'stars') {
+          if (b.stargazers_count !== a.stargazers_count) {
+            return b.stargazers_count - a.stargazers_count;
+          }
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        } else if (selectedSort === 'updated') {
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        } else if (selectedSort === 'name') {
+          return a.name.localeCompare(b.name);
+        }
+      });
+
+      resultsCount.innerText = `Showing ${filtered.length} of ${allRepos.length} repositories`;
+
+      if (filtered.length === 0) {
+        repoGrid.innerHTML = `
+          <div class="no-results">
+            <h3>No matching repositories found</h3>
+            <p>Try clearing your search query or filters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      repoGrid.innerHTML = filtered.map(repo => {
+        const langColor = LANG_COLORS[repo.language] || '#8b949e';
+        const formattedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        let badges = '';
+        if (repo.fork) {
+          badges += '<span class="type-badge badge-fork">Fork</span>';
+        }
+        if (repo.archived) {
+          badges += '<span class="type-badge badge-archived">Archived</span>';
+        }
+
+        return `
+          <div class="repo-card">
+            <div>
+              <div class="repo-header">
+                <h3 class="repo-title">
+                  <a href="${repo.html_url}" target="_blank" rel="noopener">${escapeHtml(repo.name)}</a>
+                </h3>
+                <div style="display: flex; gap: 0.3rem;">${badges}</div>
+              </div>
+              <p class="repo-desc">${escapeHtml(repo.description || 'No description provided.')}</p>
+            </div>
+            <div class="repo-footer">
+              <div class="repo-lang">
+                ${repo.language ? `<span class="lang-dot" style="background-color: ${langColor};"></span><span>${escapeHtml(repo.language)}</span>` : '<span>Other</span>'}
+              </div>
+              <div class="repo-meta">
+                ${repo.stargazers_count > 0 ? `
+                  <div class="meta-item" title="Stars">
+                    <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path></svg>
+                    <span>${repo.stargazers_count}</span>
+                  </div>
+                ` : ''}
+                <div class="meta-item" title="Updated">
+                  <span>Updated ${formattedDate}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        }[m];
+      });
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      render();
+    });
+
+    langSelect.addEventListener('change', (e) => {
+      selectedLang = e.target.value;
+      render();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+      selectedSort = e.target.value;
+      render();
+    });
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTab = btn.getAttribute('data-type');
+        render();
+      });
+    });
+
+    // Initialize
+    initRepos();
+  </script>
+</body>
+</html>
